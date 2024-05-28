@@ -8,6 +8,8 @@ body {
   max-width: 800px;
   margin: 20px auto;
   padding: 0 20px;
+  display:inline;
+  border: black;
 }
 
 h1 {
@@ -17,6 +19,24 @@ h1 {
 img {
   width: 250px;
   height: 250px;
+}
+
+h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+li {
+  position: relative;
+  text-align: center;
+  color: bisque;
+}
+
+ul {
+  display: inline;
 }
 
 .button-52 {
