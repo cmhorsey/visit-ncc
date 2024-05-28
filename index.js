@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const activityOptions = document.getElementById('activityOptions')
   const sightsOptions = document.getElementById('sightsOptions')
   const diningBtn = document.getElementById('diningBtn')
+  const activityBtn = document.getElementById('activityBtn')
+  const sightsBtn = document.getElementById('sightsBtn')
+
 
 
     function displayDiningOptions() {
       diningBtn.addEventListener('click', (e) => {
         e.preventDefault()
-        console.log('test')
         fetch(allRestaurantsURL)
         .then(res => res.json())
         .then(restaurants => {
@@ -31,12 +33,44 @@ document.addEventListener('DOMContentLoaded', function () {
             div.appendChild(h2)
             li.appendChild(div)
             diningOptions.appendChild(li)
+
+
           })
         })
       })
-
     }
 
+    function displayActivityOptions() {
+      activityBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        fetch(allActivitiesURL)
+        .then(res => res.json())
+        .then(activities => {
+          activities.forEach(activity => {
+            console.log(activity.name)
+
+            let img = document.createElement('img')
+            let li = document.createElement('li')
+            let div = document.createElement('div')
+            let h2 = document.createElement('h2')
+
+            img.src = activity.images[0]
+            h2.innerText = activity.name
+
+            div.appendChild(img)
+            div.appendChild(h2)
+            li.appendChild(div)
+            activityOptions.appendChild(li)
+
+
+          })
+        })
+      })
+    }
+
+
+    //Toggle display
+    //
 
     // fetch(allRestaurantsURL)
     // .then(res => res.json())
@@ -75,4 +109,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 displayDiningOptions()
+displayActivityOptions()
 })
