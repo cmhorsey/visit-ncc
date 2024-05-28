@@ -27,12 +27,14 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: bisque;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 li {
   position: relative;
   text-align: center;
-  color: bisque;
+  width: 25%;
 }
 
 ul {

@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
+
 displaySightsOptions()
 displayDiningOptions()
 displayActivityOptions()
