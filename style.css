@@ -3,39 +3,22 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 0 20px;
 }
+
 h1 {
   text-align: center;
 }
-.category {
-  margin-bottom: 20px;
-}
-.options {
-  display: none;
-}
-.option-item {
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px;
-  cursor: pointer;
-}
-.option-item:hover {
-  background-color: #f0f0f0;
-}
-.option-item img {
-  max-width: 100%;
-  height: auto;
-}
-.option-details {
-  display: none;
-  margin-top: 20px;
+
+img {
+  width: 250px;
+  height: 250px;
 }
 
-/* CSS */
 .button-52 {
   font-size: 16px;
   font-weight: 200;
