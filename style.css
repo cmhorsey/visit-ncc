@@ -4,17 +4,19 @@ body {
   padding: 0;
 }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
-  display:inline;
-  border: black;
+#main-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
-h1 {
-  text-align: center;
+.btn-container {
+  width: 25%;
+  border: black solid;
 }
+
+/* h1 {
+  text-align: center;
+} */
 
 img {
   width: 250px;
