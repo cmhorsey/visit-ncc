@@ -1,15 +1,63 @@
-console.log('hello world')
-
 document.addEventListener('DOMContentLoaded', function () {
   const allRestaurantsURL = 'http://localhost:3000/restaurants'
   const allSitesURL = 'http://localhost:3000/sites'
   const allActivitiesURL = 'http://localhost:3000/activities'
 
+  const diningOptions = document.getElementById('diningOptions')
+  const activityOptions = document.getElementById('activityOptions')
+  const sightsOptions = document.getElementById('sightsOptions')
+  const diningBtn = document.getElementById('diningBtn')
 
 
-    fetch(allRestaurantsURL)
-    .then(res => res.json())
-    .then(console.log)
+    function displayDiningOptions() {
+      diningBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        console.log('test')
+        fetch(allRestaurantsURL)
+        .then(res => res.json())
+        .then(restaurants => {
+          restaurants.forEach(restaurant => {
+            console.log(restaurant.name)
+
+            let img = document.createElement('img')
+            let li = document.createElement('li')
+            let div = document.createElement('div')
+            let h2 = document.createElement('h2')
+
+            img.src = restaurant.images[0]
+            h2.innerText = restaurant.name
+
+            div.appendChild(img)
+            div.appendChild(h2)
+            li.appendChild(div)
+            diningOptions.appendChild(li)
+          })
+        })
+      })
+
+    }
+
+
+    // fetch(allRestaurantsURL)
+    // .then(res => res.json())
+    // .then(restaurants => {
+    //   restaurants.forEach(restaurant => {
+    //     console.log(restaurant.name)
+
+    //     let img = document.createElement('img')
+    //     let li = document.createElement('li')
+    //     let div = document.createElement('div')
+    //     let h2 = document.createElement('h2')
+
+    //     img.src = restaurant.images[0]
+    //     h2.innerText = restaurant.name
+
+    //     div.appendChild(img)
+    //     div.appendChild(h2)
+    //     li.appendChild(div)
+    //     diningOptions.appendChild(li)
+    //   })
+    // })
 
     fetch(allSitesURL)
     .then(res => res.json())
@@ -20,4 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(console.log)
 
 
+    //Create list function
+    //for each element
+    //create a card list item that displays img1 and name
+    //append card to corresponding container
+
+
+displayDiningOptions()
 })
