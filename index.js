@@ -68,6 +68,33 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
+    function displaySightsOptions() {
+      sightsBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        fetch(allSitesURL)
+        .then(res => res.json())
+        .then(sights => {
+          sights.forEach(sight => {
+            console.log(sight.name)
+
+            let img = document.createElement('img')
+            let li = document.createElement('li')
+            let div = document.createElement('div')
+            let h2 = document.createElement('h2')
+
+            img.src = sight.images[0]
+            h2.innerText = sight.name
+
+            div.appendChild(img)
+            div.appendChild(h2)
+            li.appendChild(div)
+            sightsOptions.appendChild(li)
+
+
+          })
+        })
+      })
+    }
 
     //Toggle display
     //
@@ -107,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //create a card list item that displays img1 and name
     //append card to corresponding container
 
-
+displaySightsOptions()
 displayDiningOptions()
 displayActivityOptions()
 })
