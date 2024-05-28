@@ -42,8 +42,8 @@
     },
     {
       "id": 5,
-      "location": "Trolley Square Oyster House",
-      "name": "Restaurant Name",
+      "location": "Address",
+      "name": "Trolley Square Oyster House",
       "images": ["https://trolleysquareoysterhouse.com/wp-content/uploads/2022/04/Trolley-Square-6996sm-1.jpg",
       "img2",
       "img3"],
@@ -52,8 +52,8 @@
     },
     {
       "id": 6,
-      "location": "Cantwells Tavern",
-      "name": "Restaurant Name",
+      "location": "Address",
+      "name": "Cantwells Tavern",
       "images": ["https://popmenucloud.com/qsbntfzp/650c8d99-274c-4955-93d2-1347676388d3.jpg",
       "img2",
       "img3"],
@@ -62,7 +62,7 @@
     }
   ],
 
-  "sites": [
+  "sights": [
     {
       "id": 1,
       "location": "Address",
