@@ -28,16 +28,22 @@ document.addEventListener('DOMContentLoaded', function () {
               let li = document.createElement('li')
               let div = document.createElement('div')
               let h2 = document.createElement('h2')
+              let infoBtn = document.createElement('button')
 
               img.src = restaurant.images[0]
               h2.innerText = restaurant.name
+              infoBtn.classList.add('button-52')
+              infoBtn.innerText = 'More info'
 
               div.appendChild(img)
               div.appendChild(h2)
               li.appendChild(div)
+              li.appendChild(infoBtn)
+
               diningOptions.appendChild(li)
 
-              img.addEventListener('click', (e) => {
+              //CREATE DETAILS ON CLICK FUNCTION
+              infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
                 let detailsContainer = document.createElement('div')
