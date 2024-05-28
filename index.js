@@ -102,14 +102,44 @@ document.addEventListener('DOMContentLoaded', function () {
               let li = document.createElement('li')
               let div = document.createElement('div')
               let h2 = document.createElement('h2')
+              let infoBtn = document.createElement('button')
 
               img.src = activity.images[0]
               h2.innerText = activity.name
+              h2.classList.add('title-name')
+              infoBtn.classList.add('button-52')
+              infoBtn.innerText = 'More info'
 
               div.appendChild(img)
               div.appendChild(h2)
               li.appendChild(div)
+              li.appendChild(infoBtn)
+
               activityOptions.appendChild(li)
+
+              //CREATE DETAILS ON CLICK FUNCTION
+              infoBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                let detailsContainer = document.createElement('div')
+                let optionName = document.createElement('h2')
+                let img2 = document.createElement('img')
+                let img3 = document.createElement('img')
+                let description = document.createElement('p')
+
+                optionName.classList.add('option-name')
+                optionName.innerText = activity.name
+                img2.src = activity.images[1]
+                img3.src = activity.images[2]
+                description.innerText = activity.description
+
+                detailsContainer.appendChild(optionName)
+                detailsContainer.appendChild(img2)
+                detailsContainer.appendChild(img3)
+                detailsContainer.appendChild(description)
+
+                optionDetails.appendChild(detailsContainer)
+              })
             })
             optionsVisible = true
           })
@@ -135,14 +165,45 @@ document.addEventListener('DOMContentLoaded', function () {
               let li = document.createElement('li')
               let div = document.createElement('div')
               let h2 = document.createElement('h2')
+              let infoBtn = document.createElement('button')
+
 
               img.src = sight.images[0]
               h2.innerText = sight.name
+              h2.classList.add('title-name')
+              infoBtn.classList.add('button-52')
+              infoBtn.innerText = 'More info'
 
               div.appendChild(img)
               div.appendChild(h2)
               li.appendChild(div)
+              li.appendChild(infoBtn)
+
               sightsOptions.appendChild(li)
+
+              //CREATE DETAILS ON CLICK FUNCTION
+              infoBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                let detailsContainer = document.createElement('div')
+                let optionName = document.createElement('h2')
+                let img2 = document.createElement('img')
+                let img3 = document.createElement('img')
+                let description = document.createElement('p')
+
+                optionName.classList.add('option-name')
+                optionName.innerText = sight.name
+                img2.src = sight.images[1]
+                img3.src = sight.images[2]
+                description.innerText = sight.description
+
+                detailsContainer.appendChild(optionName)
+                detailsContainer.appendChild(img2)
+                detailsContainer.appendChild(img3)
+                detailsContainer.appendChild(description)
+
+                optionDetails.appendChild(detailsContainer)
+              })
             })
             optionsVisible = true
           })
