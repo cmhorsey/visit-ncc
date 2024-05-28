@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
               img.src = restaurant.images[0]
               h2.innerText = restaurant.name
+              h2.classList.add('title-name')
               infoBtn.classList.add('button-52')
               infoBtn.innerText = 'More info'
+
 
               div.appendChild(img)
               div.appendChild(h2)
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let img3 = document.createElement('img')
                 let description = document.createElement('p')
 
+                optionName.classList.add('option-name')
                 optionName.innerText = restaurant.name
                 img2.src = restaurant.images[1]
                 img3.src = restaurant.images[2]
