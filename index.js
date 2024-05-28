@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
 
-    function displayDiningOptions() {
-      let optionsVisible = false
+  function displayDiningOptions() {
+    let optionsVisible = false
 
-      diningBtn.addEventListener('click', (e) => {
-        e.preventDefault()
+    diningBtn.addEventListener('click', (e) => {
+      e.preventDefault()
 
-      if(optionsVisible) {
+      if (optionsVisible) {
         diningOptions.innerHTML = ''
         optionsVisible = false
       } else {
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
               infoBtn.classList.add('button-52')
               infoBtn.innerText = 'More info'
 
-
               div.appendChild(img)
               div.appendChild(h2)
               li.appendChild(div)
@@ -44,36 +43,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
               diningOptions.appendChild(li)
 
-              //CREATE DETAILS ON CLICK FUNCTION
+              // CREATE DETAILS CONTAINER
+              let detailsContainer = document.createElement('div')
+              optionDetails.appendChild(detailsContainer)
+              detailsContainer.style.display = 'none' // Initially hidden
+
+              // CREATE DETAILS ON CLICK FUNCTION
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
-                let detailsContainer = document.createElement('div')
-                let optionName = document.createElement('h2')
-                let img2 = document.createElement('img')
-                let img3 = document.createElement('img')
-                let description = document.createElement('p')
+                if (detailsContainer.style.display === 'none') {
+                  detailsContainer.innerHTML = ''
 
-                optionName.classList.add('option-name')
-                optionName.innerText = restaurant.name
-                img2.src = restaurant.images[1]
-                img3.src = restaurant.images[2]
-                description.innerText = restaurant.description
 
-                detailsContainer.appendChild(optionName)
-                detailsContainer.appendChild(img2)
-                detailsContainer.appendChild(img3)
-                detailsContainer.appendChild(description)
+                  let optionName = document.createElement('h2')
+                  let img2 = document.createElement('img')
+                  let img3 = document.createElement('img')
+                  let description = document.createElement('p')
 
-                optionDetails.appendChild(detailsContainer)
+                  optionName.classList.add('option-name')
+                  optionName.innerText = restaurant.name
+                  img2.src = restaurant.images[1]
+                  img3.src = restaurant.images[2]
+                  description.innerText = restaurant.description
+
+                  detailsContainer.appendChild(optionName)
+                  detailsContainer.appendChild(img2)
+                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(description)
+
+                  detailsContainer.style.display = 'block'
+                } else {
+                  detailsContainer.style.display = 'none'
+                }
               })
             })
             optionsVisible = true
           })
-        }
-      })
-    }
-
+      }
+    })
+  }
     //Create on click fucntion for each option card
     //Create details card
     // Img2 Img3, h2 name, p description
