@@ -174,63 +174,76 @@ document.addEventListener('DOMContentLoaded', function () {
     sightsBtn.addEventListener('click', (e) => {
       e.preventDefault()
 
-    if(optionsVisible) {
-      sightsOptions.innerHTML = ''
-      optionsVisible = false
-    } else {
-      fetch(allSightsURL)
-        .then(res => res.json())
-        .then(sights => {
-          sights.forEach(sight => {
-            let img = document.createElement('img')
-            let li = document.createElement('li')
-            let div = document.createElement('div')
-            let h2 = document.createElement('h2')
-            let infoBtn = document.createElement('button')
+      if (optionsVisible) {
+        sightsOptions.innerHTML = ''
+        optionsVisible = false
+      } else {
+        fetch(allSightsURL)
+          .then(res => res.json())
+          .then(sights => {
+            sights.forEach(sight => {
+              let img = document.createElement('img')
+              let li = document.createElement('li')
+              let div = document.createElement('div')
+              let h2 = document.createElement('h2')
+              let infoBtn = document.createElement('button')
 
+              img.src = sight.images[0]
+              h2.innerText = sight.name
+              h2.classList.add('title-name')
+              infoBtn.classList.add('info-btn')
+              infoBtn.innerText = 'More info'
+              //ADD DIV CLASS LIST FOR MARGIN
+              div.classList.add('divCard')
 
-            img.src = sight.images[0]
-            h2.innerText = sight.name
-            h2.classList.add('title-name')
-            infoBtn.classList.add('button-52')
-            infoBtn.innerText = 'More info'
+              div.appendChild(img)
+              div.appendChild(h2)
+              li.appendChild(div)
+              li.appendChild(infoBtn)
 
-            div.appendChild(img)
-            div.appendChild(h2)
-            li.appendChild(div)
-            li.appendChild(infoBtn)
+              sightsOptions.appendChild(li)
 
-            sightsOptions.appendChild(li)
-
-            //CREATE DETAILS ON CLICK FUNCTION
-            infoBtn.addEventListener('click', (e) => {
-              e.preventDefault()
-
+              // CREATE DETAILS CONTAINER
               let detailsContainer = document.createElement('div')
-              let optionName = document.createElement('h2')
-              let img2 = document.createElement('img')
-              let img3 = document.createElement('img')
-              let description = document.createElement('p')
-
-              optionName.classList.add('option-name')
-              optionName.innerText = sight.name
-              img2.src = sight.images[1]
-              img3.src = sight.images[2]
-              description.innerText = sight.description
-
-              detailsContainer.appendChild(optionName)
-              detailsContainer.appendChild(img2)
-              detailsContainer.appendChild(img3)
-              detailsContainer.appendChild(description)
-
               optionDetails.appendChild(detailsContainer)
+              detailsContainer.style.display = 'none'
+
+              // CREATE DETAILS ON CLICK FUNCTION
+              infoBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                if (detailsContainer.style.display === 'none') {
+                  detailsContainer.innerHTML = ''
+
+
+                  let optionName = document.createElement('h2')
+                  let img2 = document.createElement('img')
+                  let img3 = document.createElement('img')
+                  let description = document.createElement('p')
+
+                  optionName.classList.add('option-name')
+                  optionName.innerText = sight.name
+                  img2.src = sight.images[1]
+                  img3.src = sight.images[2]
+                  description.innerText = sight.description
+
+                  detailsContainer.appendChild(optionName)
+                  detailsContainer.appendChild(img2)
+                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(description)
+
+                  detailsContainer.style.display = 'block'
+                } else {
+                  detailsContainer.style.display = 'none'
+                }
+              })
             })
+            optionsVisible = true
           })
-          optionsVisible = true
-        })
       }
     })
   }
+
 
   displaySightsOptions()
   displayDiningOptions()
