@@ -2,15 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const allRestaurantsURL = 'http://localhost:3000/restaurants'
   const allSightsURL = 'http://localhost:3000/sights'
   const allActivitiesURL = 'http://localhost:3000/activities'
-
   const diningOptions = document.getElementById('diningOptions')
   const activityOptions = document.getElementById('activityOptions')
   const sightsOptions = document.getElementById('sightsOptions')
   const diningBtn = document.getElementById('diningBtn')
   const activityBtn = document.getElementById('activityBtn')
   const sightsBtn = document.getElementById('sightsBtn')
-
-
 
     function displayDiningOptions() {
       let optionsVisible = false
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(res => res.json())
           .then(restaurants => {
             restaurants.forEach(restaurant => {
-
               let img = document.createElement('img')
               let li = document.createElement('li')
               let div = document.createElement('div')
@@ -60,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(res => res.json())
           .then(activities => {
             activities.forEach(activity => {
-
               let img = document.createElement('img')
               let li = document.createElement('li')
               let div = document.createElement('div')
@@ -80,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
-
     function displaySightsOptions() {
       let optionsVisible = false
 
@@ -95,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(res => res.json())
           .then(sights => {
             sights.forEach(sight => {
-
               let img = document.createElement('img')
               let li = document.createElement('li')
               let div = document.createElement('div')
@@ -115,8 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
 
-
-displaySightsOptions()
-displayDiningOptions()
-displayActivityOptions()
+  displaySightsOptions()
+  displayDiningOptions()
+  displayActivityOptions()
 })
