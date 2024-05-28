@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const allRestaurantsURL = 'http://localhost:3000/restaurants'
-  const allSitesURL = 'http://localhost:3000/sites'
+  const allSightsURL = 'http://localhost:3000/sights'
   const allActivitiesURL = 'http://localhost:3000/activities'
 
   const diningOptions = document.getElementById('diningOptions')
@@ -13,126 +13,107 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function displayDiningOptions() {
+      let optionsVisible = false
+
       diningBtn.addEventListener('click', (e) => {
         e.preventDefault()
+
+      if(optionsVisible) {
+        diningOptions.innerHTML = ''
+        optionsVisible = false
+      } else {
         fetch(allRestaurantsURL)
-        .then(res => res.json())
-        .then(restaurants => {
-          restaurants.forEach(restaurant => {
-            console.log(restaurant.name)
+          .then(res => res.json())
+          .then(restaurants => {
+            restaurants.forEach(restaurant => {
 
-            let img = document.createElement('img')
-            let li = document.createElement('li')
-            let div = document.createElement('div')
-            let h2 = document.createElement('h2')
+              let img = document.createElement('img')
+              let li = document.createElement('li')
+              let div = document.createElement('div')
+              let h2 = document.createElement('h2')
 
-            img.src = restaurant.images[0]
-            h2.innerText = restaurant.name
+              img.src = restaurant.images[0]
+              h2.innerText = restaurant.name
 
-            div.appendChild(img)
-            div.appendChild(h2)
-            li.appendChild(div)
-            diningOptions.appendChild(li)
-
-
+              div.appendChild(img)
+              div.appendChild(h2)
+              li.appendChild(div)
+              diningOptions.appendChild(li)
+            })
+            optionsVisible = true
           })
-        })
+        }
       })
     }
 
     function displayActivityOptions() {
+      let optionsVisible = false
+
       activityBtn.addEventListener('click', (e) => {
         e.preventDefault()
+
+      if(optionsVisible) {
+        activityOptions.innerHTML = ''
+        optionsVisible = false
+      } else {
         fetch(allActivitiesURL)
-        .then(res => res.json())
-        .then(activities => {
-          activities.forEach(activity => {
-            console.log(activity.name)
+          .then(res => res.json())
+          .then(activities => {
+            activities.forEach(activity => {
 
-            let img = document.createElement('img')
-            let li = document.createElement('li')
-            let div = document.createElement('div')
-            let h2 = document.createElement('h2')
+              let img = document.createElement('img')
+              let li = document.createElement('li')
+              let div = document.createElement('div')
+              let h2 = document.createElement('h2')
 
-            img.src = activity.images[0]
-            h2.innerText = activity.name
+              img.src = activity.images[0]
+              h2.innerText = activity.name
 
-            div.appendChild(img)
-            div.appendChild(h2)
-            li.appendChild(div)
-            activityOptions.appendChild(li)
-
-
+              div.appendChild(img)
+              div.appendChild(h2)
+              li.appendChild(div)
+              activityOptions.appendChild(li)
+            })
+            optionsVisible = true
           })
-        })
+        }
       })
     }
+
 
     function displaySightsOptions() {
+      let optionsVisible = false
+
       sightsBtn.addEventListener('click', (e) => {
         e.preventDefault()
-        fetch(allSitesURL)
-        .then(res => res.json())
-        .then(sights => {
-          sights.forEach(sight => {
-            console.log(sight.name)
 
-            let img = document.createElement('img')
-            let li = document.createElement('li')
-            let div = document.createElement('div')
-            let h2 = document.createElement('h2')
+      if(optionsVisible) {
+        sightsOptions.innerHTML = ''
+        optionsVisible = false
+      } else {
+        fetch(allSightsURL)
+          .then(res => res.json())
+          .then(sights => {
+            sights.forEach(sight => {
 
-            img.src = sight.images[0]
-            h2.innerText = sight.name
+              let img = document.createElement('img')
+              let li = document.createElement('li')
+              let div = document.createElement('div')
+              let h2 = document.createElement('h2')
 
-            div.appendChild(img)
-            div.appendChild(h2)
-            li.appendChild(div)
-            sightsOptions.appendChild(li)
+              img.src = sight.images[0]
+              h2.innerText = sight.name
 
-
+              div.appendChild(img)
+              div.appendChild(h2)
+              li.appendChild(div)
+              sightsOptions.appendChild(li)
+            })
+            optionsVisible = true
           })
-        })
+        }
       })
     }
-
-    //Toggle display
-    //
-
-    // fetch(allRestaurantsURL)
-    // .then(res => res.json())
-    // .then(restaurants => {
-    //   restaurants.forEach(restaurant => {
-    //     console.log(restaurant.name)
-
-    //     let img = document.createElement('img')
-    //     let li = document.createElement('li')
-    //     let div = document.createElement('div')
-    //     let h2 = document.createElement('h2')
-
-    //     img.src = restaurant.images[0]
-    //     h2.innerText = restaurant.name
-
-    //     div.appendChild(img)
-    //     div.appendChild(h2)
-    //     li.appendChild(div)
-    //     diningOptions.appendChild(li)
-    //   })
-    // })
-
-    fetch(allSitesURL)
-    .then(res => res.json())
-    .then(console.log)
-
-    fetch(allActivitiesURL)
-    .then(res => res.json())
-    .then(console.log)
-
-
-    //Create list function
-    //for each element
-    //create a card list item that displays img1 and name
-    //append card to corresponding container
 
 displaySightsOptions()
 displayDiningOptions()
