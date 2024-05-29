@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const activityBtn = document.getElementById('activityBtn')
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
+  const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
 
   function displayDiningOptions() {
     let optionsVisible = false
@@ -56,18 +57,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   let optionName = document.createElement('h2')
                   let img = document.createElement('img')
-                  // let img3 = document.createElement('img')
+                  let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = restaurant.name
                   img.src = restaurant.images[0]
-                  // img3.src = restaurant.images[2]
+                  arrowIcon.src = arrowImage
                   description.innerText = restaurant.description
+                  arrowIcon.classList.add('arrowIcon')
 
                   detailsContainer.appendChild(optionName)
                   detailsContainer.appendChild(img)
-                  // detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
 
                   //Change img to img1

@@ -13,6 +13,14 @@ body {
   width: 25%;
 }
 
+/* optionDetails */
+
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+}
+
 img {
   width: 250px;
   height: 250px;
