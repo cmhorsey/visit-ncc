@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
   const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
+  const itineraryList = document.getElementById('itineraryList')
 
   function displayDiningOptions() {
     let optionsVisible = false
@@ -89,6 +90,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
                       img.src = restaurant.images[currentImage]
                     }
+                  })
+
+                  itineraryBtn.addEventListener('click', (e) => {
+                    console.log('test')
+                    let eventTitle = document.createElement('h3')
+                    let listItemContainer = document.createElement('li')
+
+
+                    eventTitle.innerText = restaurant.name
+
+                    listItemContainer.appendChild(eventTitle)
+                    itineraryList.appendChild(listItemContainer)
+
                   })
 
                   detailsContainer.style.display = 'block'
