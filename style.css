@@ -11,18 +11,12 @@ body {
 
 .btn-container {
   width: 25%;
-  border: black solid;
 }
 
 img {
   width: 250px;
   height: 250px;
 }
-
-/* .divCard {
-  margin: 20px;
-  background-color: aliceblue;
-} */
 
 .title-name {
   position: absolute;
