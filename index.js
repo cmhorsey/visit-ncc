@@ -13,20 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const itineraryList = document.getElementById('itineraryList')
   const itineraryListContainer = document.getElementById('itineraryListContainer')
 
-  // function handleDeleteBtn() {
-  //   let deleteBtn = document.createElement('button')
-  //   deleteBtn.innerText = 'X'
-
-  //   itineraryListItem.appendChild(deleteBtn)
-
-  //   deleteBtn.addEventListener("click", (e) => {
-  //     e.preventDefault()
-  //     // console.log(e.target.parentElement)
-  //     e.target.parentElement.innerHTML = ''
-
-  //   })
-  // }
-
   function displayDiningOptions() {
     let optionsVisible = false
 
@@ -238,14 +224,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.preventDefault()
                     let eventTitle = document.createElement('h3')
                     let listItemContainer = document.createElement('li')
+                    let deleteBtn = document.createElement('button')
 
+                    deleteBtn.innerText = 'Remove'
                     listItemContainer.classList.add('itineraryListItem')
                     eventTitle.innerText = activity.name
+                    deleteBtn.classList.add('info-btn')
 
                     listItemContainer.appendChild(eventTitle)
+                    listItemContainer.appendChild(deleteBtn)
                     itineraryList.appendChild(listItemContainer)
 
-                    // handleDeleteBtn()
 
                     listItemContainer.addEventListener('mouseover', (e) => {
                       let addressInfo = document.createElement('p')
@@ -256,6 +245,12 @@ document.addEventListener('DOMContentLoaded', function () {
                       listItemContainer.addEventListener('mouseout', (e) => {
                         addressInfo.innerText = ''
                       })
+                    })
+
+                    deleteBtn.addEventListener("click", (e) => {
+                      e.preventDefault()
+                      e.target.parentElement.remove()
+
                     })
                   })
 
@@ -355,14 +350,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.preventDefault()
                     let eventTitle = document.createElement('h3')
                     let listItemContainer = document.createElement('li')
+                    let deleteBtn = document.createElement('button')
 
+                    deleteBtn.innerText = 'Remove'
                     listItemContainer.classList.add('itineraryListItem')
                     eventTitle.innerText = sight.name
+                    deleteBtn.classList.add('info-btn')
 
                     listItemContainer.appendChild(eventTitle)
+                    listItemContainer.appendChild(deleteBtn)
                     itineraryList.appendChild(listItemContainer)
-
-                    // handleDeleteBtn()
 
                     listItemContainer.addEventListener('mouseover', (e) => {
                       let addressInfo = document.createElement('p')
@@ -373,6 +370,12 @@ document.addEventListener('DOMContentLoaded', function () {
                       listItemContainer.addEventListener('mouseout', (e) => {
                         addressInfo.innerText = ''
                       })
+                    })
+
+                    deleteBtn.addEventListener("click", (e) => {
+                      e.preventDefault()
+                      e.target.parentElement.remove()
+
                     })
                   })
 
