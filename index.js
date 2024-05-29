@@ -13,6 +13,51 @@ document.addEventListener('DOMContentLoaded', function () {
   const itineraryList = document.getElementById('itineraryList')
   const itineraryListContainer = document.getElementById('itineraryListContainer')
 
+
+  function createItineraryCard(newItem) {
+    let eventTitle = document.createElement('h3')
+    let listItemContainer = document.createElement('li')
+    let deleteBtn = document.createElement('button')
+
+    deleteBtn.innerText = 'Remove'
+    listItemContainer.classList.add('itineraryListItem')
+    eventTitle.innerText = newItem.name
+    deleteBtn.classList.add('info-btn')
+
+
+    listItemContainer.appendChild(eventTitle)
+    listItemContainer.appendChild(deleteBtn)
+    itineraryList.appendChild(listItemContainer)
+
+    listItemContainer.addEventListener('mouseover', (e) => {
+      let addressInfo = document.createElement('p')
+      addressInfo.innerText = newItem.location
+
+      listItemContainer.appendChild(addressInfo)
+
+      listItemContainer.addEventListener('mouseout', (e) => {
+        addressInfo.innerText = ''
+      })
+    })
+
+    deleteBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+
+      e.target.parentElement.remove()
+
+      // fetch('http://localhost:3000/myItinerary/', {
+      //   method: 'DELETE',
+      //   headers:
+      //   {
+      //     Accept: "application/json"
+      //   }
+      // })
+      // .then(res => res.json())
+      // .then(console.log)
+
+    })
+  }
+
   function displayDiningOptions() {
     let optionsVisible = false
 
@@ -95,51 +140,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   itineraryBtn.addEventListener('click', (e) => {
                     e.preventDefault()
-                    let eventTitle = document.createElement('h3')
-                    let listItemContainer = document.createElement('li')
-                    let deleteBtn = document.createElement('button')
 
-                    deleteBtn.innerText = 'Remove'
-                    listItemContainer.classList.add('itineraryListItem')
-                    eventTitle.innerText = restaurant.name
-                    deleteBtn.classList.add('info-btn')
+                  //CREATE POST REQUEST
+                  let newItineraryItem = {
+                    'name': restaurant.name,
+                    'location': restaurant.location
+                  }
+
+                  fetch('http://localhost:3000/myItinerary', {
+                    method: 'POST',
+                    headers:
+                    {
+                      "Content-Type": "application/json",
+                      Accept: "application/json"
+                    },
+                    body: JSON.stringify(newItineraryItem)
+                  })
+                  .then(res => res.json())
+                  .then(newItem => createItineraryCard(newItem))
+                  //then create itineraryListItem
+
+                    // let eventTitle = document.createElement('h3')
+                    // let listItemContainer = document.createElement('li')
+                    // let deleteBtn = document.createElement('button')
+
+                    // deleteBtn.innerText = 'Remove'
+                    // listItemContainer.classList.add('itineraryListItem')
+                    // eventTitle.innerText = restaurant.name
+                    // deleteBtn.classList.add('info-btn')
 
 
-                    listItemContainer.appendChild(eventTitle)
-                    listItemContainer.appendChild(deleteBtn)
-                    itineraryList.appendChild(listItemContainer)
+                    // listItemContainer.appendChild(eventTitle)
+                    // listItemContainer.appendChild(deleteBtn)
+                    // itineraryList.appendChild(listItemContainer)
 
-                    listItemContainer.addEventListener('mouseover', (e) => {
-                      let addressInfo = document.createElement('p')
-                      addressInfo.innerText = restaurant.location
+                    // listItemContainer.addEventListener('mouseover', (e) => {
+                    //   let addressInfo = document.createElement('p')
+                    //   addressInfo.innerText = restaurant.location
 
-                      listItemContainer.appendChild(addressInfo)
+                    //   listItemContainer.appendChild(addressInfo)
 
-                      listItemContainer.addEventListener('mouseout', (e) => {
-                        addressInfo.innerText = ''
-                      })
-                    })
+                    //   listItemContainer.addEventListener('mouseout', (e) => {
+                    //     addressInfo.innerText = ''
+                    //   })
+                    // })
 
-                    deleteBtn.addEventListener("click", (e) => {
-                      e.preventDefault()
-                      e.target.parentElement.remove()
+                    // deleteBtn.addEventListener("click", (e) => {
+                    //   e.preventDefault()
 
-                    })
+                    //   e.target.parentElement.remove()
 
-                    //CREATE POST REQUEST
-                    let newItineraryItem = {
-                      'name': restaurant.name
-                    }
+                    //   // fetch('http://localhost:3000/myItinerary/', {
+                    //   //   method: 'DELETE',
+                    //   //   headers:
+                    //   //   {
+                    //   //     Accept: "application/json"
+                    //   //   }
+                    //   // })
+                    //   // .then(res => res.json())
+                    //   // .then(console.log)
 
-                    fetch('http://localhost:3000/myItinerary', {
-                      method: 'POST',
-                      headers:
-                      {
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                      },
-                      body: JSON.stringify(newItineraryItem)
-                    })
+                    // })
                   })
 
                   detailsContainer.style.display = 'block'
