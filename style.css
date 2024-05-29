@@ -1,5 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: helvetica ;
+  font-weight: lighter;
   margin: 0;
   padding: 0;
 }
@@ -13,7 +14,12 @@ body {
   width: 25%;
 }
 
-/* optionDetails */
+#optionDetails {
+  text-align: center;
+  width: 25%;
+  height: 25%;
+  margin-top: 10%;
+}
 
 
 .arrowIcon {
