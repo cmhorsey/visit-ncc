@@ -126,6 +126,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     })
 
+                    //CREATE POST REQUEST
+                    let newItineraryItem = {
+                      'name': restaurant.name
+                    }
+
+                    fetch('http://localhost:3000/myItinerary', {
+                      method: 'POST',
+                      headers:
+                      {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                      },
+                      body: JSON.stringify(newItineraryItem)
+                    })
                   })
 
                   detailsContainer.style.display = 'block'
@@ -215,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
                       if (currentImage >= activity.images.length) {
                         currentImage = 0
                       }
-
                       img.src = activity.images[currentImage]
                     }
                   })
@@ -341,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function () {
                       if (currentImage >= sight.images.length) {
                         currentImage = 0
                       }
-
                       img.src = sight.images[currentImage]
                     }
                   })
