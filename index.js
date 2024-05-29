@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   })
                   .then(res => res.json())
                   .then(newItem => createItineraryCard(newItem))
+
                   })
 
                   detailsContainer.style.display = 'block'
@@ -263,37 +264,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   itineraryBtn.addEventListener('click', (e) => {
                     e.preventDefault()
-                    let eventTitle = document.createElement('h3')
-                    let listItemContainer = document.createElement('li')
-                    let deleteBtn = document.createElement('button')
 
-                    deleteBtn.innerText = 'Remove'
-                    listItemContainer.classList.add('itineraryListItem')
-                    eventTitle.innerText = activity.name
-                    deleteBtn.classList.add('info-btn')
+                    //CREATE POST REQUEST
+                    let newItineraryItem = {
+                      'name': activity.name,
+                      'location': activity.location
+                    }
 
-                    listItemContainer.appendChild(eventTitle)
-                    listItemContainer.appendChild(deleteBtn)
-                    itineraryList.appendChild(listItemContainer)
-
-
-                    listItemContainer.addEventListener('mouseover', (e) => {
-                      let addressInfo = document.createElement('p')
-                      addressInfo.innerText = activity.location
-
-                      listItemContainer.appendChild(addressInfo)
-
-                      listItemContainer.addEventListener('mouseout', (e) => {
-                        addressInfo.innerText = ''
-                      })
+                    fetch('http://localhost:3000/myItinerary', {
+                      method: 'POST',
+                      headers:
+                      {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                      },
+                      body: JSON.stringify(newItineraryItem)
                     })
-
-                    deleteBtn.addEventListener("click", (e) => {
-                      e.preventDefault()
-                      e.target.parentElement.remove()
+                    .then(res => res.json())
+                    .then(newItem => createItineraryCard(newItem))
 
                     })
-                  })
 
                   detailsContainer.style.display = 'block'
                 } else {
@@ -388,35 +378,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   itineraryBtn.addEventListener('click', (e) => {
                     e.preventDefault()
-                    let eventTitle = document.createElement('h3')
-                    let listItemContainer = document.createElement('li')
-                    let deleteBtn = document.createElement('button')
+                    //CREATE POST REQUEST
+                    let newItineraryItem = {
+                      'name': sight.name,
+                      'location': sight.location
+                    }
 
-                    deleteBtn.innerText = 'Remove'
-                    listItemContainer.classList.add('itineraryListItem')
-                    eventTitle.innerText = sight.name
-                    deleteBtn.classList.add('info-btn')
-
-                    listItemContainer.appendChild(eventTitle)
-                    listItemContainer.appendChild(deleteBtn)
-                    itineraryList.appendChild(listItemContainer)
-
-                    listItemContainer.addEventListener('mouseover', (e) => {
-                      let addressInfo = document.createElement('p')
-                      addressInfo.innerText = sight.location
-
-                      listItemContainer.appendChild(addressInfo)
-
-                      listItemContainer.addEventListener('mouseout', (e) => {
-                        addressInfo.innerText = ''
-                      })
+                    fetch('http://localhost:3000/myItinerary', {
+                      method: 'POST',
+                      headers:
+                      {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                      },
+                      body: JSON.stringify(newItineraryItem)
                     })
-
-                    deleteBtn.addEventListener("click", (e) => {
-                      e.preventDefault()
-                      e.target.parentElement.remove()
-
-                    })
+                    .then(res => res.json())
+                    .then(newItem => createItineraryCard(newItem))
                   })
 
                   detailsContainer.style.display = 'block'
