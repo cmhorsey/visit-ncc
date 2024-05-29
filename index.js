@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //   let deleteBtn = document.createElement('button')
   //   deleteBtn.innerText = 'X'
 
-  //   itineraryList.appendChild(deleteBtn)
+  //   itineraryListItem.appendChild(deleteBtn)
 
   //   deleteBtn.addEventListener("click", (e) => {
   //     e.preventDefault()
@@ -26,43 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //   })
   // }
-
-
-  function handleItinerary() {
-
-    let itineraryBtn = document.createElement('button')
-
-    itineraryBtn.innerText = 'Add to itinerary'
-    itineraryBtn.classList.add('info-btn')
-
-
-
-      itineraryBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-        let eventTitle = document.createElement('h3')
-        let listItemContainer = document.createElement('li')
-
-        listItemContainer.classList.add('itineraryListItem')
-        eventTitle.innerText = restaurant.name
-
-        listItemContainer.appendChild(eventTitle)
-        itineraryList.appendChild(listItemContainer)
-
-
-        // handleDeleteBtn()
-
-        listItemContainer.addEventListener('mouseover', (e) => {
-          let addressInfo = document.createElement('p')
-          addressInfo.innerText = restaurant.location
-
-          listItemContainer.appendChild(addressInfo)
-
-          listItemContainer.addEventListener('mouseout', (e) => {
-            addressInfo.innerText = ''
-          })
-        })
-      })
-    }
 
   function displayDiningOptions() {
     let optionsVisible = false
@@ -148,14 +111,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.preventDefault()
                     let eventTitle = document.createElement('h3')
                     let listItemContainer = document.createElement('li')
+                    let deleteBtn = document.createElement('button')
 
+                    deleteBtn.innerText = 'Remove'
                     listItemContainer.classList.add('itineraryListItem')
                     eventTitle.innerText = restaurant.name
+                    deleteBtn.classList.add('info-btn')
+
 
                     listItemContainer.appendChild(eventTitle)
+                    listItemContainer.appendChild(deleteBtn)
                     itineraryList.appendChild(listItemContainer)
-
-                    // handleDeleteBtn()
 
                     listItemContainer.addEventListener('mouseover', (e) => {
                       let addressInfo = document.createElement('p')
@@ -167,6 +133,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         addressInfo.innerText = ''
                       })
                     })
+
+                    deleteBtn.addEventListener("click", (e) => {
+                      e.preventDefault()
+                      e.target.parentElement.remove()
+
+                    })
+
                   })
 
                   detailsContainer.style.display = 'block'
