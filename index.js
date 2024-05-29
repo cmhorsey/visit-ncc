@@ -93,16 +93,27 @@ document.addEventListener('DOMContentLoaded', function () {
                   })
 
                   itineraryBtn.addEventListener('click', (e) => {
-                    console.log('test')
+                    e.preventDefault()
                     let eventTitle = document.createElement('h3')
                     let listItemContainer = document.createElement('li')
-
 
                     eventTitle.innerText = restaurant.name
 
                     listItemContainer.appendChild(eventTitle)
                     itineraryList.appendChild(listItemContainer)
 
+                    listItemContainer.addEventListener('mouseover', (e) => {
+                      let addressInfo = document.createElement('p')
+                      addressInfo.innerText = restaurant.location
+
+                      listItemContainer.appendChild(addressInfo)
+
+                      listItemContainer.addEventListener('mouseout', (e) => {
+                        addressInfo.innerText = ''
+
+                        // listItemContainer.appendChild(addressInfo)
+                      })
+                    })
                   })
 
                   detailsContainer.style.display = 'block'
