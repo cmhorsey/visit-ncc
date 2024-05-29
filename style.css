@@ -4,16 +4,13 @@ body {
   padding: 0;
 }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
-  display:inline;
-  border: black;
+#main-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
-h1 {
-  text-align: center;
+.btn-container {
+  width: 25%;
 }
 
 img {
@@ -21,12 +18,18 @@ img {
   height: 250px;
 }
 
-h2 {
+.title-name {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: bisque;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+h2 .option-name {
+  transform: translate(-50%, -50%);
   color: bisque;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
@@ -76,5 +79,43 @@ ul {
 @media (min-width: 768px) {
   .button-52 {
     padding: 13px 50px 13px;
+  }
+}
+
+.info-btn {
+  font-size: 8px;  /* Reduced by half */
+  font-weight: 200;
+  letter-spacing: 1px;  /* Keep the same if necessary or adjust as needed */
+  padding: 6.5px 10px 6.5px;  /* Reduced by half */
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.info-btn:after {
+  content: "";
+  background-color: #d19095;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 3.5px;  /* Reduced by half */
+  left: 3.5px;  /* Reduced by half */
+  transition: 0.2s;
+}
+
+.info-btn:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .info-btn {
+    padding: 6.5px 25px 6.5px;  /* Reduced by half */
   }
 }
