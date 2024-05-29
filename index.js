@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
               h2.classList.add('title-name')
               infoBtn.classList.add('info-btn')
               infoBtn.innerText = 'More info'
-              //ADD DIV CLASS LIST FOR MARGIN
               div.classList.add('divCard')
 
               div.appendChild(img)
@@ -45,18 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
               diningOptions.appendChild(li)
 
-              // CREATE DETAILS CONTAINER
               let detailsContainer = document.createElement('div')
               optionDetails.appendChild(detailsContainer)
               detailsContainer.style.display = 'none'
 
-              // CREATE DETAILS ON CLICK FUNCTION
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
-
 
                   let optionName = document.createElement('h2')
                   let img2 = document.createElement('img')
@@ -75,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   detailsContainer.appendChild(description)
 
                   detailsContainer.style.display = 'block'
-                } else {
+                  } else {
                   detailsContainer.style.display = 'none'
                 }
               })
@@ -85,12 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
   }
-    //Create on click fucntion for each option card
-    //Create details card
-    // Img2 Img3, h2 name, p description
-    //On click will display details of the option
-    //Details will include Location, Description, other Imgs
-
 
   function displayActivityOptions() {
     let optionsVisible = false
@@ -117,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
               h2.classList.add('title-name')
               infoBtn.classList.add('info-btn')
               infoBtn.innerText = 'More info'
-              //ADD DIV CLASS LIST FOR MARGIN
               div.classList.add('divCard')
 
               div.appendChild(img)
@@ -127,18 +116,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
               activityOptions.appendChild(li)
 
-              // CREATE DETAILS CONTAINER
               let detailsContainer = document.createElement('div')
               optionDetails.appendChild(detailsContainer)
               detailsContainer.style.display = 'none'
 
-              // CREATE DETAILS ON CLICK FUNCTION
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
-
 
                   let optionName = document.createElement('h2')
                   let img2 = document.createElement('img')
@@ -193,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function () {
               h2.classList.add('title-name')
               infoBtn.classList.add('info-btn')
               infoBtn.innerText = 'More info'
-              //ADD DIV CLASS LIST FOR MARGIN
               div.classList.add('divCard')
 
               div.appendChild(img)
@@ -203,18 +188,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
               sightsOptions.appendChild(li)
 
-              // CREATE DETAILS CONTAINER
               let detailsContainer = document.createElement('div')
               optionDetails.appendChild(detailsContainer)
               detailsContainer.style.display = 'none'
 
-              // CREATE DETAILS ON CLICK FUNCTION
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
-
 
                   let optionName = document.createElement('h2')
                   let img2 = document.createElement('img')
@@ -243,8 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
   }
-
-
   displaySightsOptions()
   displayDiningOptions()
   displayActivityOptions()
