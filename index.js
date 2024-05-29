@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
 
+                optionDetails.innerHTML = '';
+
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
 
@@ -168,13 +170,14 @@ document.addEventListener('DOMContentLoaded', function () {
                   })
                   .then(res => res.json())
                   .then(newItem => createItineraryCard(newItem))
-
                   })
 
                   detailsContainer.style.display = 'block'
                   } else {
                   detailsContainer.style.display = 'none'
                 }
+
+                optionDetails.appendChild(detailsContainer);
               })
             })
             optionsVisible = true
@@ -223,6 +226,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
+
+                optionDetails.innerHTML = '';
 
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
@@ -289,6 +294,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                   detailsContainer.style.display = 'none'
                 }
+                optionDetails.appendChild(detailsContainer);
+
               })
             })
             optionsVisible = true
@@ -337,6 +344,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
               infoBtn.addEventListener('click', (e) => {
                 e.preventDefault()
+
+                optionDetails.innerHTML = '';
 
                 if (detailsContainer.style.display === 'none') {
                   detailsContainer.innerHTML = ''
@@ -401,6 +410,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                   detailsContainer.style.display = 'none'
                 }
+
+                optionDetails.appendChild(detailsContainer);
               })
             })
             optionsVisible = true
