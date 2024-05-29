@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const allRestaurantsURL = 'http://localhost:3000/restaurants'
   const allSightsURL = 'http://localhost:3000/sights'
   const allActivitiesURL = 'http://localhost:3000/activities'
+  const myItineraryURL = 'http://localhost:3000/myItinerary'
   const diningOptions = document.getElementById('diningOptions')
   const activityOptions = document.getElementById('activityOptions')
   const sightsOptions = document.getElementById('sightsOptions')
@@ -42,19 +43,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     deleteBtn.addEventListener("click", (e) => {
       e.preventDefault()
-
+      console.log(newItem.id)
       e.target.parentElement.remove()
 
-      // fetch('http://localhost:3000/myItinerary/', {
-      //   method: 'DELETE',
-      //   headers:
-      //   {
-      //     Accept: "application/json"
-      //   }
-      // })
-      // .then(res => res.json())
-      // .then(console.log)
+      fetch(`http://localhost:3000/myItinerary/${newItem.id}`, {
+        method: 'DELETE',
+        headers:
+        {
+          Accept: "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(console.log)
+    })
+  }
 
+  function displayMyItinerary() {
+    fetch(myItineraryURL)
+    .then(res => res.json())
+    .then(items => {
+      items.forEach(item => {
+        createItineraryCard(item)
+      })
     })
   }
 
@@ -158,49 +168,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   })
                   .then(res => res.json())
                   .then(newItem => createItineraryCard(newItem))
-                  //then create itineraryListItem
-
-                    // let eventTitle = document.createElement('h3')
-                    // let listItemContainer = document.createElement('li')
-                    // let deleteBtn = document.createElement('button')
-
-                    // deleteBtn.innerText = 'Remove'
-                    // listItemContainer.classList.add('itineraryListItem')
-                    // eventTitle.innerText = restaurant.name
-                    // deleteBtn.classList.add('info-btn')
-
-
-                    // listItemContainer.appendChild(eventTitle)
-                    // listItemContainer.appendChild(deleteBtn)
-                    // itineraryList.appendChild(listItemContainer)
-
-                    // listItemContainer.addEventListener('mouseover', (e) => {
-                    //   let addressInfo = document.createElement('p')
-                    //   addressInfo.innerText = restaurant.location
-
-                    //   listItemContainer.appendChild(addressInfo)
-
-                    //   listItemContainer.addEventListener('mouseout', (e) => {
-                    //     addressInfo.innerText = ''
-                    //   })
-                    // })
-
-                    // deleteBtn.addEventListener("click", (e) => {
-                    //   e.preventDefault()
-
-                    //   e.target.parentElement.remove()
-
-                    //   // fetch('http://localhost:3000/myItinerary/', {
-                    //   //   method: 'DELETE',
-                    //   //   headers:
-                    //   //   {
-                    //   //     Accept: "application/json"
-                    //   //   }
-                    //   // })
-                    //   // .then(res => res.json())
-                    //   // .then(console.log)
-
-                    // })
                   })
 
                   detailsContainer.style.display = 'block'
@@ -463,6 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
   }
+  displayMyItinerary()
   displaySightsOptions()
   displayDiningOptions()
   displayActivityOptions()
