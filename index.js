@@ -27,6 +27,43 @@ document.addEventListener('DOMContentLoaded', function () {
   //   })
   // }
 
+
+  function handleItinerary() {
+
+    let itineraryBtn = document.createElement('button')
+
+    itineraryBtn.innerText = 'Add to itinerary'
+    itineraryBtn.classList.add('info-btn')
+
+
+
+      itineraryBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let eventTitle = document.createElement('h3')
+        let listItemContainer = document.createElement('li')
+
+        listItemContainer.classList.add('itineraryListItem')
+        eventTitle.innerText = restaurant.name
+
+        listItemContainer.appendChild(eventTitle)
+        itineraryList.appendChild(listItemContainer)
+
+
+        // handleDeleteBtn()
+
+        listItemContainer.addEventListener('mouseover', (e) => {
+          let addressInfo = document.createElement('p')
+          addressInfo.innerText = restaurant.location
+
+          listItemContainer.appendChild(addressInfo)
+
+          listItemContainer.addEventListener('mouseout', (e) => {
+            addressInfo.innerText = ''
+          })
+        })
+      })
+    }
+
   function displayDiningOptions() {
     let optionsVisible = false
 
@@ -192,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   let img = document.createElement('img')
                   let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
+                  let itineraryBtn = document.createElement('button')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = activity.name
@@ -199,11 +237,14 @@ document.addEventListener('DOMContentLoaded', function () {
                   arrowIcon.src = arrowImage
                   description.innerText = activity.description
                   arrowIcon.classList.add('arrowIcon')
+                  itineraryBtn.innerText = 'Add to itinerary'
+                  itineraryBtn.classList.add('info-btn')
 
                   detailsContainer.appendChild(optionName)
                   detailsContainer.appendChild(img)
                   detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+                  detailsContainer.appendChild(itineraryBtn)
 
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
@@ -218,6 +259,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
                       img.src = activity.images[currentImage]
                     }
+                  })
+
+                  itineraryBtn.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let eventTitle = document.createElement('h3')
+                    let listItemContainer = document.createElement('li')
+
+                    listItemContainer.classList.add('itineraryListItem')
+                    eventTitle.innerText = activity.name
+
+                    listItemContainer.appendChild(eventTitle)
+                    itineraryList.appendChild(listItemContainer)
+
+                    // handleDeleteBtn()
+
+                    listItemContainer.addEventListener('mouseover', (e) => {
+                      let addressInfo = document.createElement('p')
+                      addressInfo.innerText = activity.location
+
+                      listItemContainer.appendChild(addressInfo)
+
+                      listItemContainer.addEventListener('mouseout', (e) => {
+                        addressInfo.innerText = ''
+                      })
+                    })
                   })
 
                   detailsContainer.style.display = 'block'
@@ -280,6 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   let img = document.createElement('img')
                   let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
+                  let itineraryBtn = document.createElement('button')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = sight.name
@@ -287,12 +354,14 @@ document.addEventListener('DOMContentLoaded', function () {
                   arrowIcon.src = arrowImage
                   description.innerText = sight.description
                   arrowIcon.classList.add('arrowIcon')
-
+                  itineraryBtn.innerText = 'Add to itinerary'
+                  itineraryBtn.classList.add('info-btn')
 
                   detailsContainer.appendChild(optionName)
                   detailsContainer.appendChild(img)
                   detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+                  detailsContainer.appendChild(itineraryBtn)
 
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
@@ -307,6 +376,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
                       img.src = sight.images[currentImage]
                     }
+                  })
+
+                  itineraryBtn.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let eventTitle = document.createElement('h3')
+                    let listItemContainer = document.createElement('li')
+
+                    listItemContainer.classList.add('itineraryListItem')
+                    eventTitle.innerText = sight.name
+
+                    listItemContainer.appendChild(eventTitle)
+                    itineraryList.appendChild(listItemContainer)
+
+                    // handleDeleteBtn()
+
+                    listItemContainer.addEventListener('mouseover', (e) => {
+                      let addressInfo = document.createElement('p')
+                      addressInfo.innerText = sight.location
+
+                      listItemContainer.appendChild(addressInfo)
+
+                      listItemContainer.addEventListener('mouseout', (e) => {
+                        addressInfo.innerText = ''
+                      })
+                    })
                   })
 
                   detailsContainer.style.display = 'block'
