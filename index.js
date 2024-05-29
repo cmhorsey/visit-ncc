@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const optionDetails = document.getElementById('optionDetails')
   const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
   const itineraryList = document.getElementById('itineraryList')
+  const itineraryListContainer = document.getElementById('itineraryListContainer')
+
+  // function handleDeleteBtn() {
+  //   let deleteBtn = document.createElement('button')
+  //   deleteBtn.innerText = 'X'
+
+  //   itineraryList.appendChild(deleteBtn)
+
+  //   deleteBtn.addEventListener("click", (e) => {
+  //     e.preventDefault()
+  //     // console.log(e.target.parentElement)
+  //     e.target.parentElement.innerHTML = ''
+
+  //   })
+  // }
 
   function displayDiningOptions() {
     let optionsVisible = false
@@ -97,10 +112,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     let eventTitle = document.createElement('h3')
                     let listItemContainer = document.createElement('li')
 
+                    listItemContainer.classList.add('itineraryListItem')
                     eventTitle.innerText = restaurant.name
 
                     listItemContainer.appendChild(eventTitle)
                     itineraryList.appendChild(listItemContainer)
+
+                    // handleDeleteBtn()
 
                     listItemContainer.addEventListener('mouseover', (e) => {
                       let addressInfo = document.createElement('p')
@@ -110,8 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                       listItemContainer.addEventListener('mouseout', (e) => {
                         addressInfo.innerText = ''
-
-                        // listItemContainer.appendChild(addressInfo)
                       })
                     })
                   })
