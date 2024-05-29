@@ -22,10 +22,10 @@
 ## Feature 3 - View more option images on keydown
 
 ### User Story
-  As a user, I want to be able to view more images of my selected option in the details section when I press down the left or right key.
+  As a user, I want to be able to view more images of my selected option in the details section when I press down the right key.
 
 ### Details
-  When the option details page is displayed, the user can view more images of the option when the left or right key is pressed.
+  When the option details page is displayed, the user can view more images of the option when the right key is pressed.
 
 ## Feature 4 - Add options to itinerary
 

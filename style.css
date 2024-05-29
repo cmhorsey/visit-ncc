@@ -1,5 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: helvetica ;
+  font-weight: lighter;
   margin: 0;
   padding: 0;
 }
@@ -11,6 +12,19 @@ body {
 
 .btn-container {
   width: 25%;
+}
+
+#optionDetails {
+  text-align: center;
+  width: 25%;
+  height: 25%;
+  margin-top: 10%;
+}
+
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
 }
 
 img {

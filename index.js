@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const activityBtn = document.getElementById('activityBtn')
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
+  const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
 
   function displayDiningOptions() {
     let optionsVisible = false
@@ -55,20 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
                   detailsContainer.innerHTML = ''
 
                   let optionName = document.createElement('h2')
-                  let img2 = document.createElement('img')
-                  let img3 = document.createElement('img')
+                  let img = document.createElement('img')
+                  let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = restaurant.name
-                  img2.src = restaurant.images[1]
-                  img3.src = restaurant.images[2]
+                  img.src = restaurant.images[0]
+                  arrowIcon.src = arrowImage
                   description.innerText = restaurant.description
+                  arrowIcon.classList.add('arrowIcon')
 
                   detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img2)
-                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(img)
+                  detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+
+                  let currentImage = 0
+                  window.addEventListener('keydown', (e) => {
+                    let key = e.keyCode
+                    console.log(key)
+                    if(key === 39) {
+                      currentImage++
+
+                      if (currentImage >= restaurant.images.length) {
+                        currentImage = 0
+                      }
+
+                      img.src = restaurant.images[currentImage]
+                    }
+                  })
 
                   detailsContainer.style.display = 'block'
                   } else {
@@ -127,20 +144,36 @@ document.addEventListener('DOMContentLoaded', function () {
                   detailsContainer.innerHTML = ''
 
                   let optionName = document.createElement('h2')
-                  let img2 = document.createElement('img')
-                  let img3 = document.createElement('img')
+                  let img = document.createElement('img')
+                  let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = activity.name
-                  img2.src = activity.images[1]
-                  img3.src = activity.images[2]
+                  img.src = activity.images[0]
+                  arrowIcon.src = arrowImage
                   description.innerText = activity.description
+                  arrowIcon.classList.add('arrowIcon')
 
                   detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img2)
-                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(img)
+                  detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+
+                  let currentImage = 0
+                  window.addEventListener('keydown', (e) => {
+                    let key = e.keyCode
+                    console.log(key)
+                    if(key === 39) {
+                      currentImage++
+
+                      if (currentImage >= activity.images.length) {
+                        currentImage = 0
+                      }
+
+                      img.src = activity.images[currentImage]
+                    }
+                  })
 
                   detailsContainer.style.display = 'block'
                 } else {
@@ -199,20 +232,37 @@ document.addEventListener('DOMContentLoaded', function () {
                   detailsContainer.innerHTML = ''
 
                   let optionName = document.createElement('h2')
-                  let img2 = document.createElement('img')
-                  let img3 = document.createElement('img')
+                  let img = document.createElement('img')
+                  let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = sight.name
-                  img2.src = sight.images[1]
-                  img3.src = sight.images[2]
+                  img.src = sight.images[0]
+                  arrowIcon.src = arrowImage
                   description.innerText = sight.description
+                  arrowIcon.classList.add('arrowIcon')
+
 
                   detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img2)
-                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(img)
+                  detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+
+                  let currentImage = 0
+                  window.addEventListener('keydown', (e) => {
+                    let key = e.keyCode
+                    console.log(key)
+                    if(key === 39) {
+                      currentImage++
+
+                      if (currentImage >= sight.images.length) {
+                        currentImage = 0
+                      }
+
+                      img.src = sight.images[currentImage]
+                    }
+                  })
 
                   detailsContainer.style.display = 'block'
                 } else {
