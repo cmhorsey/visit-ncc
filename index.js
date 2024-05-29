@@ -55,20 +55,32 @@ document.addEventListener('DOMContentLoaded', function () {
                   detailsContainer.innerHTML = ''
 
                   let optionName = document.createElement('h2')
-                  let img2 = document.createElement('img')
-                  let img3 = document.createElement('img')
+                  let img = document.createElement('img')
+                  // let img3 = document.createElement('img')
                   let description = document.createElement('p')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = restaurant.name
-                  img2.src = restaurant.images[1]
-                  img3.src = restaurant.images[2]
+                  img.src = restaurant.images[0]
+                  // img3.src = restaurant.images[2]
                   description.innerText = restaurant.description
 
                   detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img2)
-                  detailsContainer.appendChild(img3)
+                  detailsContainer.appendChild(img)
+                  // detailsContainer.appendChild(img3)
                   detailsContainer.appendChild(description)
+
+                  //Change img to img1
+                  //add event listener
+                  //On keydown
+                  //change img src to img.images[0++]
+
+                  window.addEventListener('keydown', (e) => {
+                    let key = e.keyCode
+                    if(key === 39) {
+                      img.src = restaurant.images[1]
+                    }
+                  })
 
                   detailsContainer.style.display = 'block'
                   } else {
