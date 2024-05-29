@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   let img = document.createElement('img')
                   let arrowIcon = document.createElement('img')
                   let description = document.createElement('p')
+                  let itineraryBtn = document.createElement('button')
 
                   optionName.classList.add('option-name')
                   optionName.innerText = restaurant.name
@@ -66,11 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
                   arrowIcon.src = arrowImage
                   description.innerText = restaurant.description
                   arrowIcon.classList.add('arrowIcon')
+                  itineraryBtn.innerText = 'Add to itinerary'
+                  itineraryBtn.classList.add('info-btn')
 
                   detailsContainer.appendChild(optionName)
                   detailsContainer.appendChild(img)
                   detailsContainer.appendChild(arrowIcon)
                   detailsContainer.appendChild(description)
+                  detailsContainer.appendChild(itineraryBtn)
 
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
