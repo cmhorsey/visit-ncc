@@ -75,10 +75,18 @@ document.addEventListener('DOMContentLoaded', function () {
                   //On keydown
                   //change img src to img.images[0++]
 
+                  let currentImage = 0
                   window.addEventListener('keydown', (e) => {
                     let key = e.keyCode
+                    console.log(key)
                     if(key === 39) {
-                      img.src = restaurant.images[1]
+                      currentImage++
+
+                      if (currentImage >= restaurant.images.length) {
+                        currentImage = 0
+                      }
+
+                      img.src =restaurant.images[currentImage]
                     }
                   })
 
