@@ -58,24 +58,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function createDisplayOption(option, container){
     let displayImg = document.createElement('img')
-    let li = document.createElement('li')
-    let div = document.createElement('div')
-    let h2 = document.createElement('h2')
+    let displayLi = document.createElement('li')
+    let displayDiv = document.createElement('div')
+    let displayName = document.createElement('h2')
     let infoBtn = document.createElement('button')
 
     displayImg.src = option.images[0]
-    h2.innerText = option.name
-    h2.classList.add('title-name')
+    displayName.innerText = option.name
+    displayName.classList.add('title-name')
     infoBtn.classList.add('info-btn')
     infoBtn.innerText = 'More info'
-    div.classList.add('divCard')
+    displayDiv.classList.add('divCard')
 
-    div.appendChild(displayImg)
-    div.appendChild(h2)
-    li.appendChild(div)
-    li.appendChild(infoBtn)
+    displayDiv.appendChild(displayImg)
+    displayDiv.appendChild(displayName)
+    displayLi.appendChild(displayDiv)
+    displayLi.appendChild(infoBtn)
 
-    container.appendChild(li)
+    container.appendChild(displayLi)
     return infoBtn
   }
 
