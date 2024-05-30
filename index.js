@@ -88,13 +88,10 @@ function handleDiningDisplay(option, container){
   return infoBtn
 }
 
-function fetchAllDisplays(option, container){
-
-}
 
 
-function handleDiningFetch(restaurant){
-  let infoBtn  = handleDiningDisplay(restaurant, diningOptions)
+function displayOptions(option, container){
+  let infoBtn  = handleDiningDisplay(option, container)
 
   let detailsContainer = document.createElement('div')
   optionDetails.appendChild(detailsContainer)
@@ -115,10 +112,10 @@ function handleDiningFetch(restaurant){
       let itineraryBtn = document.createElement('button')
 
       optionName.classList.add('option-name')
-      optionName.innerText = restaurant.name
-      img.src = restaurant.images[0]
+      optionName.innerText = option.name
+      img.src = option.images[0]
       arrowIcon.src = arrowImage
-      description.innerText = restaurant.description
+      description.innerText = option.description
       arrowIcon.classList.add('arrowIcon')
       itineraryBtn.innerText = 'Add to itinerary'
       itineraryBtn.classList.add('info-btn')
@@ -135,11 +132,11 @@ function handleDiningFetch(restaurant){
         if(key === 39) {
           currentImage++
 
-          if (currentImage >= restaurant.images.length) {
+          if (currentImage >= option.images.length) {
             currentImage = 0
           }
 
-          img.src = restaurant.images[currentImage]
+          img.src = option.images[currentImage]
         }
       })
 
@@ -148,8 +145,8 @@ function handleDiningFetch(restaurant){
 
       //CREATE POST REQUEST
       let newItineraryItem = {
-        'name': restaurant.name,
-        'location': restaurant.location
+        'name': option.name,
+        'location': option.location
       }
 
       fetch('http://localhost:3000/myItinerary', {
@@ -175,20 +172,41 @@ function handleDiningFetch(restaurant){
 }
 
 
-  function displayDiningOptions() {
+  // function displayDiningOptions() {
+  //   let optionsVisible = false
+  //   diningBtn.addEventListener('click', (e) => {
+  //     e.preventDefault()
+
+  //     if (optionsVisible) {
+  //       diningOptions.innerHTML = ''
+  //       optionsVisible = false
+  //     } else {
+  //       fetch(allRestaurantsURL)
+  //         .then(res => res.json())
+  //         .then(restaurants => {
+  //           restaurants.forEach(restaurant => {
+  //             handleDiningFetch(restaurant)
+  //           })
+  //           optionsVisible = true
+  //         })
+  //     }
+  //   })
+  // }
+
+  function displayFetchOptions(url, container, button){
     let optionsVisible = false
-    diningBtn.addEventListener('click', (e) => {
+    button.addEventListener('click', (e) => {
       e.preventDefault()
 
       if (optionsVisible) {
-        diningOptions.innerHTML = ''
+        container.innerHTML = ''
         optionsVisible = false
       } else {
-        fetch(allRestaurantsURL)
+        fetch(url)
           .then(res => res.json())
-          .then(restaurants => {
-            restaurants.forEach(restaurant => {
-              handleDiningFetch(restaurant)
+          .then(options => {
+            options.forEach(option => {
+              displayOptions(option, container)
             })
             optionsVisible = true
           })
@@ -196,108 +214,108 @@ function handleDiningFetch(restaurant){
     })
   }
 
-  function handleActivityFetch(activity) {
-    let infoBtn  = handleDiningDisplay(activity, activityOptions)
+  // function handleActivityFetch(activity) {
+  //   let infoBtn  = handleDiningDisplay(activity, activityOptions)
 
-    let detailsContainer = document.createElement('div')
-    optionDetails.appendChild(detailsContainer)
-    detailsContainer.style.display = 'none'
+  //   let detailsContainer = document.createElement('div')
+  //   optionDetails.appendChild(detailsContainer)
+  //   detailsContainer.style.display = 'none'
 
-    infoBtn.addEventListener('click', (e) => {
-      e.preventDefault()
+  //   infoBtn.addEventListener('click', (e) => {
+  //     e.preventDefault()
 
-      optionDetails.innerHTML = '';
+  //     optionDetails.innerHTML = '';
 
-      if (detailsContainer.style.display === 'none') {
-        detailsContainer.innerHTML = ''
+  //     if (detailsContainer.style.display === 'none') {
+  //       detailsContainer.innerHTML = ''
 
-        let optionName = document.createElement('h2')
-        let img = document.createElement('img')
-        let arrowIcon = document.createElement('img')
-        let description = document.createElement('p')
-        let itineraryBtn = document.createElement('button')
+  //       let optionName = document.createElement('h2')
+  //       let img = document.createElement('img')
+  //       let arrowIcon = document.createElement('img')
+  //       let description = document.createElement('p')
+  //       let itineraryBtn = document.createElement('button')
 
-        optionName.classList.add('option-name')
-        optionName.innerText = activity.name
-        img.src = activity.images[0]
-        arrowIcon.src = arrowImage
-        description.innerText = activity.description
-        arrowIcon.classList.add('arrowIcon')
-        itineraryBtn.innerText = 'Add to itinerary'
-        itineraryBtn.classList.add('info-btn')
+  //       optionName.classList.add('option-name')
+  //       optionName.innerText = activity.name
+  //       img.src = activity.images[0]
+  //       arrowIcon.src = arrowImage
+  //       description.innerText = activity.description
+  //       arrowIcon.classList.add('arrowIcon')
+  //       itineraryBtn.innerText = 'Add to itinerary'
+  //       itineraryBtn.classList.add('info-btn')
 
-        detailsContainer.appendChild(optionName)
-        detailsContainer.appendChild(img)
-        detailsContainer.appendChild(arrowIcon)
-        detailsContainer.appendChild(description)
-        detailsContainer.appendChild(itineraryBtn)
+  //       detailsContainer.appendChild(optionName)
+  //       detailsContainer.appendChild(img)
+  //       detailsContainer.appendChild(arrowIcon)
+  //       detailsContainer.appendChild(description)
+  //       detailsContainer.appendChild(itineraryBtn)
 
-        let currentImage = 0
-        window.addEventListener('keydown', (e) => {
-          let key = e.keyCode
-          if(key === 39) {
-            currentImage++
+  //       let currentImage = 0
+  //       window.addEventListener('keydown', (e) => {
+  //         let key = e.keyCode
+  //         if(key === 39) {
+  //           currentImage++
 
-            if (currentImage >= activity.images.length) {
-              currentImage = 0
-            }
-            img.src = activity.images[currentImage]
-          }
-        })
+  //           if (currentImage >= activity.images.length) {
+  //             currentImage = 0
+  //           }
+  //           img.src = activity.images[currentImage]
+  //         }
+  //       })
 
-        itineraryBtn.addEventListener('click', (e) => {
-          e.preventDefault()
+  //       itineraryBtn.addEventListener('click', (e) => {
+  //         e.preventDefault()
 
-          //CREATE POST REQUEST
-          let newItineraryItem = {
-            'name': activity.name,
-            'location': activity.location
-          }
+  //         //CREATE POST REQUEST
+  //         let newItineraryItem = {
+  //           'name': activity.name,
+  //           'location': activity.location
+  //         }
 
-          fetch('http://localhost:3000/myItinerary', {
-            method: 'POST',
-            headers:
-            {
-              "Content-Type": "application/json",
-              Accept: "application/json"
-            },
-            body: JSON.stringify(newItineraryItem)
-          })
-          .then(res => res.json())
-          .then(newItem => createItineraryCard(newItem))
+  //         fetch('http://localhost:3000/myItinerary', {
+  //           method: 'POST',
+  //           headers:
+  //           {
+  //             "Content-Type": "application/json",
+  //             Accept: "application/json"
+  //           },
+  //           body: JSON.stringify(newItineraryItem)
+  //         })
+  //         .then(res => res.json())
+  //         .then(newItem => createItineraryCard(newItem))
 
-          })
+  //         })
 
-        detailsContainer.style.display = 'block'
-      } else {
-        detailsContainer.style.display = 'none'
-      }
-      optionDetails.appendChild(detailsContainer);
-    })
-  }
+  //       detailsContainer.style.display = 'block'
+  //     } else {
+  //       detailsContainer.style.display = 'none'
+  //     }
+  //     optionDetails.appendChild(detailsContainer);
+  //   })
+  // }
 
 
-  function displayActivityOptions() {
-    let optionsVisible = false
+  // function displayActivityOptions() {
+  //   let optionsVisible = false
 
-    activityBtn.addEventListener('click', (e) => {
-      e.preventDefault()
+  //   activityBtn.addEventListener('click', (e) => {
+  //     e.preventDefault()
 
-      if (optionsVisible) {
-        activityOptions.innerHTML = ''
-        optionsVisible = false
-      } else {
-        fetch(allActivitiesURL)
-          .then(res => res.json())
-          .then(activities => {
-            activities.forEach(activity => {
-              handleActivityFetch(activity)
-            })
-            optionsVisible = true
-          })
-      }
-    })
-  }
+  //     if (optionsVisible) {
+  //       activityOptions.innerHTML = ''
+  //       optionsVisible = false
+  //     } else {
+  //       fetch(allActivitiesURL)
+  //         .then(res => res.json())
+  //         .then(activities => {
+  //           activities.forEach(activity => {
+  //             handleActivityFetch(activity)
+  //           })
+  //           optionsVisible = true
+  //         })
+  //     }
+  //   })
+  // }
   //call handle display fetch
   //pass it
 
@@ -375,7 +393,7 @@ function handleDiningFetch(restaurant){
       } else {
         detailsContainer.style.display = 'none'
       }
-      optionDetails.appendChild(detailsContainer);
+      optionDetails.appendChild(detailsContainer)
     })
   }
 
@@ -402,9 +420,12 @@ function handleDiningFetch(restaurant){
   }
 
 
+  displayFetchOptions(allRestaurantsURL, diningOptions, diningBtn)
+  displayFetchOptions(allActivitiesURL, activityOptions, activityBtn)
+  displayFetchOptions(allSightsURL, sightsOptions, sightsBtn)
 
   displayMyItinerary()
-  displaySightsOptions()
-  displayDiningOptions()
-  displayActivityOptions()
+  // displaySightsOptions()
+  // displayDiningOptions()
+  // displayActivityOptions()
 })
