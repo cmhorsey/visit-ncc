@@ -65,17 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  //Create fetch function
-//create fetch, takes URL
-function handleDiningFetch(restaurant){
+function handleDiningDisplay(option, container){
   let img = document.createElement('img')
   let li = document.createElement('li')
   let div = document.createElement('div')
   let h2 = document.createElement('h2')
   let infoBtn = document.createElement('button')
 
-  img.src = restaurant.images[0]
-  h2.innerText = restaurant.name
+  img.src = option.images[0]
+  h2.innerText = option.name
   h2.classList.add('title-name')
   infoBtn.classList.add('info-btn')
   infoBtn.innerText = 'More info'
@@ -86,7 +84,14 @@ function handleDiningFetch(restaurant){
   li.appendChild(div)
   li.appendChild(infoBtn)
 
-  diningOptions.appendChild(li)
+  container.appendChild(li)
+  return infoBtn
+}
+
+
+
+function handleDiningFetch(restaurant){
+  let infoBtn  = handleDiningDisplay(restaurant, diningOptions)
 
   let detailsContainer = document.createElement('div')
   optionDetails.appendChild(detailsContainer)
@@ -95,7 +100,7 @@ function handleDiningFetch(restaurant){
   infoBtn.addEventListener('click', (e) => {
     e.preventDefault()
 
-    optionDetails.innerHTML = '';
+    optionDetails.innerHTML = ''
 
     if (detailsContainer.style.display === 'none') {
       detailsContainer.innerHTML = ''
@@ -169,7 +174,6 @@ function handleDiningFetch(restaurant){
 
   function displayDiningOptions() {
     let optionsVisible = false
-
     diningBtn.addEventListener('click', (e) => {
       e.preventDefault()
 
@@ -188,6 +192,8 @@ function handleDiningFetch(restaurant){
       }
     })
   }
+
+
 
   function displayActivityOptions() {
     let optionsVisible = false
