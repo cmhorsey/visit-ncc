@@ -229,7 +229,7 @@
         "https://www.delawareonline.com/gcdn/presto/2023/05/08/PWIL/e35e677b-a89a-4f6c-8841-8fccc6fcc9b5-Ft_Delaware-Delafort_ferry-05-05-23.JPG",
         "https://news.delaware.gov/files/2021/05/DNREC-Closes-Fort-Delaware-until-June-4-for-Ferry-Repairs-scaled.jpg"
       ],
-      "description": "Site description",
+      "description": "Situated on Pea Patch Island in the middle of the Delaware River, Fort Delaware was initially constructed in the mid-1800s to protect Wilmington and Philadelphia from enemy attack.",
       "activity-lvl": "5"
     }
   ],
@@ -253,11 +253,6 @@
       "id": "12ab",
       "name": "Go Ape Treetop Adventure",
       "location": "1042 Howell School Rd, Bear, DE 19701"
-    },
-    {
-      "id": "2728",
-      "name": "Kayak at Lums Pond",
-      "location": "1068 Howell School Rd, Bear, DE 19701"
     },
     {
       "id": "3ca2",
