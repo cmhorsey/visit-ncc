@@ -1,4 +1,4 @@
-# visit-ncc
+# Visit New Castle County Delaware
 
 ### Project Overview
 
@@ -16,4 +16,8 @@ Then run the server with:
 
  `$json-server --watch monsters.json`
 
- 3. Open index.html to view application
+ 3. Open index.html to view application. Enjoy!
+
+## Usage
+
+This itinerary planning application provides users with an interactive and user-friendly way to plan their trip to NCC. By exploring various options and managing their itinerary, users can create personalized travel plans with ease.
