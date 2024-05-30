@@ -94,69 +94,69 @@
   "sights": [
     {
       "id": 1,
-      "location": "Address",
+      "location": "New Castle, DE 19720",
       "name": "Historic Old New Castle",
       "images": [
         "https://www.deemerslanding.com/wp-content/uploads/2018/01/old-new-castle-1.jpg",
-        "img2",
-        "img3"
+        "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,g_xy_center,h_586,q_65,w_584,x_4128,y_2752/v1/clients/wilmington/historic_new_castle_moonloop_photography_4cbdd773-9761-4306-821d-d8813b9cac53.jpg",
+        "https://live.staticflickr.com/8218/8304660325_360525a857_b.jpg"
       ],
-      "description": "Site description"
+      "description": "Historic New Castle, Delaware, is a charming riverside town known for its well-preserved colonial architecture and cobblestone streets. As one of the oldest continuously inhabited towns in the United States, it offers a rich tapestry of American history, including landmarks like the New Castle Court House and the Amstel House."
     },
     {
       "id": 2,
-      "location": "Address",
+      "location": "1600 Rockland Rd, Wilmington, DE 19803",
       "name": "Nemours Estate",
       "images": [
         "https://www.nemoursestate.org/_jcr_content/root/container/container/teaser_copy.coreimg.jpeg/1708439772460/6x4-aerial-view-grand-estate-mansion-gardens.jpeg",
-        "img2",
-        "img3"
+        "https://www.inquirer.com/resizer/JZdAq-VTdhdw66ANeMQjEzwaw8A=/arc-anglerfish-arc2-prod-pmn/public/RLOTRD4XIFFDNNSFB4FOYLPSDA.jpg",
+        "https://fhwaapps.fhwa.dot.gov/bywaysp/uploads/asset_files/57779/60790_nemours_mansion_gardens.jpg"
       ],
-      "description": "Site description"
+      "description": "The Nemours Estate is a 200-acre country estate with jardin à la française formal gardens and a French neoclassical mansion in Wilmington, Delaware, United States. Built to resemble a French château, its 105 rooms on four floors occupy nearly 47,000 sq ft."
     },
     {
       "id": 3,
-      "location": "Address",
+      "location": "1124 E 7th Street, Wilmington, DE 19801",
       "name": "Kalmar Nyckel",
       "images": [
         "https://delawarebayshorebyway.org/wp-content/uploads/2021/07/Kalmar-Nyckel_0.jpg",
-        "img2",
-        "img3"
+        "https://lirp.cdn-website.com/51847ccb/dms3rep/multi/opt/KN-sail-explore-destination-tour-KN-613x420-2x-1920w.jpg",
+        "https://www.hrmm.org/uploads/2/6/3/3/26336013/knf-shipcarvings-stern-usflaghorizontal-7-2020great_orig.jpg"
       ],
-      "description": "Site description"
+      "description": "Step on board and travel back in time with the Tall Ship of Delaware"
     },
     {
       "id": 4,
-      "location": "Address",
+      "location": "Lookout Dr, Wilmington, DE 19806",
       "name": "Rockford Park Tower",
       "images": [
         "https://www.friendsofwilmingtonparks.org/wp-content/uploads/2022/09/rockford-park-img-1-1.jpg",
-        "img2",
-        "img3"
+        "https://delawarelive.com/wp-content/uploads/2022/12/318130328_466415392299746_5142869190566425223_n-1-1024x768.jpg",
+        "https://i.pinimg.com/736x/25/e5/99/25e599cd6e3a46150e1922b3044c372b.jpg"
       ],
-      "description": "Site description"
+      "description": "The historic stone water tower is located amid rolling hills and vistas, offering beautiful views of the city."
     },
     {
       "id": 5,
-      "location": "Address",
+      "location": "Downtown Wilmington",
       "name": "Stroll The Waterfront",
       "images": [
         "https://inwilmde.com/wp-content/uploads/riverfront.jpg",
-        "img2",
-        "img3"
+        "https://res.cloudinary.com/simpleview/image/upload/v1457373314/clients/wilmington/22_Christina_Riverfront_2013_36703670_e81a7fbd-aeae-42cb-9c3f-0acf59ba15c4.jpg",
+        "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/hilton-wilmington-christiana-hotel/hilton-christiana/siteimages/location-contact-3-discover-newark-de.jpg?width=400&height=300"
       ],
-      "description": "Site description"
+      "description": "Stroll along the Christina River on the scenic 1.3-mile Riverfront Wilmington, and you'll pass something for every mood and every taste, from open green spaces to IMAX  movie screens, from world-class theater to minor league baseball and dozens of places to eat."
     },
     {
       "id": 6,
-      "location": "Address",
+      "location": "41 Adams Dam Rd, Wilmington, DE 19807",
       "name": "Brandywine State Park",
       "images": [
         "https://news.delaware.gov/files/2018/11/fall-in-brandywine-creek-state-park-compressor.jpg",
-        "img2",
-        "img3"
+        "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/crm/wilmington/fixedw_large_4x0-dbe90afe5056b3a_dbe90c12-5056-b3a8-49816037b5de339a.jpg",
+        "https://images.ctfassets.net/sib29204iua7/4bOzTXOvkwY73CHC2AlDmI/e1b7b7cc8eaf5b771b8f8d256e72c01d/IMG_5796.jpg?fm=jpg&fl=progressive&fit=thumb&&w=600&h=600"
       ],
-      "description": "Site description"
+      "description": "Known for its meadowland views and blue gneiss stone walls built in the late 1800s and early 1900s, Brandywine Creek State Park sits within northern Delaware’s piedmont region with more than 14 miles of trail and a remnant old-growth forest."
     }
   ],
   "activities": [
@@ -210,14 +210,14 @@
     },
     {
       "id": 5,
-      "location": "Address",
+      "location": "All Across NCC",
       "name": "Visit Museums",
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/e/e3/Winterthur_Museum_Building_Wide_Angle_2969px.jpg",
         "https://lh3.googleusercontent.com/p/AF1QipNkucnRHgXiHSsj_sp_T_pRVtW9zrQl82q6X8AS=s1360-w1360-h1020",
         "https://sideofculture.com/wp-content/uploads/2021/02/1455-Hagley-The-Hagley-Museum-Wilmington-Delaware-.jpg"
       ],
-      "description": "Site description",
+      "description": "In New Castle County, Delaware, there are several notable museums worth exploring. Including but not limited to Delaware Art Museum, Delaware Children's Museum, and The Read House and Gardens",
       "activity-lvl": "5"
     },
     {
@@ -235,34 +235,44 @@
   ],
   "myItinerary": [
     {
-      "id": "d1f5",
+      "id": "bdee",
       "name": "Jessops Tavern",
       "location": "114 Delaware St, New Castle, DE 19720"
     },
     {
-      "id": "4647",
+      "id": "3023",
       "name": "Nora Lees",
       "location": "124 Delaware St, New Castle, DE 19720"
     },
     {
-      "id": "d520",
-      "name": "Cantwells Tavern",
-      "location": "109 Main St, Odessa, DE 19730"
+      "id": "5aa5",
+      "name": "Visit Museums",
+      "location": "All Across NCC"
     },
     {
-      "id": "12ab",
-      "name": "Go Ape Treetop Adventure",
-      "location": "1042 Howell School Rd, Bear, DE 19701"
+      "id": "ccfd",
+      "name": "Historic Old New Castle",
+      "location": ""
     },
     {
-      "id": "3ca2",
-      "name": "New Castle Farmers Market",
-      "location": "110 N Dupont Hwy, New Castle, DE 19720"
+      "id": "a15f",
+      "name": "Rockford Park Tower",
+      "location": "Lookout Dr, Wilmington, DE 19806"
     },
     {
-      "id": "fe42",
-      "name": "Shopping At Christiana Mall",
-      "location": "132 Christiana Mall, Newark, DE 19702"
+      "id": "5ad3",
+      "name": "The Mercury Cafe & Teahouse",
+      "location": "206 Delaware Street Historic, New Castle, DE 19720"
+    },
+    {
+      "id": "da0f",
+      "name": "Visit Museums",
+      "location": "All Across NCC"
+    },
+    {
+      "id": "3d6a",
+      "name": "Brandywine State Park",
+      "location": "41 Adams Dam Rd, Wilmington, DE 19807"
     }
   ]
 }
