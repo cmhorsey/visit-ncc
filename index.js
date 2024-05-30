@@ -30,19 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     handleMouseoverEvent(listItemContainer, newItem)
     handleDelete(newItem, deleteBtn)
-
-    // deleteBtn.addEventListener("click", (e) => {
-    //   e.preventDefault()
-    //   e.target.parentElement.remove()
-
-    //   fetch(`http://localhost:3000/myItinerary/${newItem.id}`, {
-    //     method: 'DELETE',
-    //     headers:
-    //     {
-    //       Accept: "application/json"
-    //     }
-    //   })
-    // })
   }
 
   function handleDelete(newItem, deleteBtn) {
@@ -163,32 +150,32 @@ function displayDetailsCard(option, detailsContainer) {
       img.src = option.images[currentImage]
     }
   })
-
-  itineraryBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    handlePostRequest(option)
-  })
+  handlePostRequest(option, itineraryBtn)
 
   detailsContainer.style.display = 'block'
 }
 
-function handlePostRequest(option) {
-  let newItineraryItem = {
-    'name': option.name,
-    'location': option.location
-  }
+function handlePostRequest(option, itineraryBtn) {
+  itineraryBtn.addEventListener('click', (e) => {
+    e.preventDefault()
 
-  fetch('http://localhost:3000/myItinerary', {
-    method: 'POST',
-    headers:
-    {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    },
-    body: JSON.stringify(newItineraryItem)
+    let newItineraryItem = {
+      'name': option.name,
+      'location': option.location
+    }
+
+    fetch('http://localhost:3000/myItinerary', {
+      method: 'POST',
+      headers:
+      {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(newItineraryItem)
+    })
+    .then(res => res.json())
+    .then(newItem => createItineraryCard(newItem))
   })
-  .then(res => res.json())
-  .then(newItem => createItineraryCard(newItem))
 }
 
 
