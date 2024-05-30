@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const allSightsURL = 'http://localhost:3000/sights'
   const allActivitiesURL = 'http://localhost:3000/activities'
   const myItineraryURL = 'http://localhost:3000/myItinerary'
+  const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
+
   const diningOptions = document.getElementById('diningOptions')
   const activityOptions = document.getElementById('activityOptions')
   const sightsOptions = document.getElementById('sightsOptions')
@@ -10,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const activityBtn = document.getElementById('activityBtn')
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
-  const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
   const itineraryList = document.getElementById('itineraryList')
 
   function displayFetchOptions(url, container, button){
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (detailsContainer.style.display === 'none') {
         displayDetailsCard(option, detailsContainer)
-        } else {
+      } else {
         detailsContainer.style.display = 'none'
       }
       optionDetails.appendChild(detailsContainer);
@@ -51,17 +52,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function displayOptions(option, container){
     let infoBtn  = createDisplayOption(option, container)
     let detailsContainer = document.createElement('div')
+
     optionDetails.appendChild(detailsContainer)
     detailsContainer.style.display = 'none'
     handleInfoBtnClick(option, infoBtn, detailsContainer)
   }
 
   function createDisplayOption(option, container){
-    let displayImg = document.createElement('img')
-    let displayLi = document.createElement('li')
-    let displayDiv = document.createElement('div')
-    let displayName = document.createElement('h2')
-    let infoBtn = document.createElement('button')
+    const displayImg = document.createElement('img')
+    const displayLi = document.createElement('li')
+    const displayDiv = document.createElement('div')
+    const displayName = document.createElement('h2')
+    const infoBtn = document.createElement('button')
 
     displayImg.src = option.images[0]
     displayName.innerText = option.name
@@ -82,11 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function displayDetailsCard(option, detailsContainer) {
     detailsContainer.innerHTML = ''
 
-    let optionName = document.createElement('h2')
-    let img = document.createElement('img')
-    let arrowIcon = document.createElement('img')
-    let description = document.createElement('p')
-    let itineraryBtn = document.createElement('button')
+    const optionName = document.createElement('h2')
+    const img = document.createElement('img')
+    const arrowIcon = document.createElement('img')
+    const description = document.createElement('p')
+    const itineraryBtn = document.createElement('button')
 
     optionName.classList.add('option-name')
     optionName.innerText = option.name
@@ -114,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
       let key = e.keyCode
       if(key === 39) {
         currentImage++
-
         if (currentImage >= option.images.length) {
           currentImage = 0
         }
@@ -124,15 +125,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function createItineraryCard(newItem) {
-    let eventTitle = document.createElement('h3')
-    let listItemContainer = document.createElement('li')
-    let deleteBtn = document.createElement('button')
+    const eventTitle = document.createElement('h3')
+    const listItemContainer = document.createElement('li')
+    const deleteBtn = document.createElement('button')
 
     deleteBtn.innerText = 'Remove'
     listItemContainer.classList.add('itineraryListItem')
     eventTitle.innerText = newItem.name
     deleteBtn.classList.add('info-btn')
-
 
     listItemContainer.appendChild(eventTitle)
     listItemContainer.appendChild(deleteBtn)
@@ -158,12 +158,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function handleMouseoverEvent(listItemContainer, newItem) {
-    listItemContainer.addEventListener('mouseover', (e) => {
+    listItemContainer.addEventListener('mouseover', () => {
       let addressInfo = document.createElement('p')
       addressInfo.innerText = newItem.location
       listItemContainer.appendChild(addressInfo)
 
-      listItemContainer.addEventListener('mouseout', (e) => {
+      listItemContainer.addEventListener('mouseout', () => {
         addressInfo.innerText = ''
       })
     })
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     itineraryBtn.addEventListener('click', (e) => {
       e.preventDefault()
 
-      let newItineraryItem = {
+      const newItineraryItem = {
         'name': option.name,
         'location': option.location
       }
@@ -199,12 +199,9 @@ document.addEventListener('DOMContentLoaded', function () {
   function displayMyItinerary() {
     fetch(myItineraryURL)
     .then(res => res.json())
-    .then(items => {
-      items.forEach(item => {
-        createItineraryCard(item)
-      })
-    })
+    .then(items => items.forEach(createItineraryCard))
   }
+
   displayFetchOptions(allRestaurantsURL, diningOptions, diningBtn)
   displayFetchOptions(allActivitiesURL, activityOptions, activityBtn)
   displayFetchOptions(allSightsURL, sightsOptions, sightsBtn)
