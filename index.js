@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     deleteBtn.addEventListener("click", (e) => {
       e.preventDefault()
-      console.log(newItem.id)
       e.target.parentElement.remove()
 
       fetch(`http://localhost:3000/myItinerary/${newItem.id}`, {
@@ -53,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
           Accept: "application/json"
         }
       })
-      .then(res => res.json())
-      .then(console.log)
     })
   }
 
@@ -138,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
                     let key = e.keyCode
-                    console.log(key)
                     if(key === 39) {
                       currentImage++
 
@@ -256,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
                     let key = e.keyCode
-                    console.log(key)
                     if(key === 39) {
                       currentImage++
 
@@ -374,7 +369,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   let currentImage = 0
                   window.addEventListener('keydown', (e) => {
                     let key = e.keyCode
-                    console.log(key)
                     if(key === 39) {
                       currentImage++
 

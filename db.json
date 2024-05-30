@@ -21,73 +21,73 @@
       "name": "The Mercury Cafe & Teahouse",
       "images": [
         "https://lh3.googleusercontent.com/p/AF1QipN6Ivixb-zpNYWFPfazgCNZOGuEYaqzv4ELDcMy=s1360-w1360-h1020",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipPntrRVsxUqel8HJ-NgiyBCCi9eJBYVB1N1ZJw0=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipMuDWgiLC7wBIKZqTIpVMi1TVrUPFVzCv4iMAwr=s1360-w1360-h1020"
       ],
-      "description": "Restaurant description",
+      "description": "A cozy, community-focused eatery known for its welcoming atmosphere and locally sourced menu. The cafe offers a variety of delicious dishes that cater to diverse dietary preferences, including vegan and gluten-free options.",
       "cuisine": [
-        "cat1",
-        "cat2"
+        "coffee",
+        "vegetarian"
       ]
     },
     {
       "id": 3,
-      "location": "Address",
+      "location": "124 Delaware St, New Castle, DE 19720",
       "name": "Nora Lees",
       "images": [
         "https://assets.simpleviewinc.com/simpleview/image/upload/crm/delaware/Nora-Lees_6C5B24B7-5056-B3A8-49112D316611B9C4-6c5b24285056b3a_6c5b2513-5056-b3a8-49fdb4ea6acfd727.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipNMtrrF3dlQXRPKZDGMvJK3o9A-WK8Ft-41v3JT=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipNxvx70u8WsG7TL92uC7P2e7--TgrufOpA29yYZ=s1360-w1360-h1020"
       ],
-      "description": "Restaurant description",
+      "description": "New Orleans–inspired bar & eatery serving Cajun & Creole classics in festive yet casual environs.",
       "cuisine": [
-        "cat1",
-        "cat2"
+        "cajun",
+        "seafood"
       ]
     },
     {
       "id": 4,
-      "location": "Address",
+      "location": "1336 Old Lancaster Pike, Hockessin, DE 19707",
       "name": "House of William and Mary ",
       "images": [
         "https://www.williamandmerry.com/Home_files/House.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipNwvRCuDv4vEcp57Ijl4vZfhkSQhIsdk7J5B6Hi=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipOD5ccY85ha8dKi2UUrri70aqpuuulOcYlXSw8L=s1360-w1360-h1020"
       ],
-      "description": "Restaurant description",
+      "description": "Remodeled century-old farmhouse with open kitchen serving creative, upscale New American food.",
       "cuisine": [
-        "cat1",
-        "cat2"
+        "american",
+        "locally-sourced"
       ]
     },
     {
       "id": 5,
-      "location": "Address",
+      "location": "1707 Delaware Ave, Wilmington, DE 19806",
       "name": "Trolley Square Oyster House",
       "images": [
         "https://trolleysquareoysterhouse.com/wp-content/uploads/2022/04/Trolley-Square-6996sm-1.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipN0O114Y_bs8B02ZPc9HxISiEGTEeorvouFBKGP=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipOTbM2ct4LAovCCu_4ltkWstMja9xABIL_kCeQ5=s1360-w1360-h1020"
       ],
-      "description": "Restaurant description",
+      "description": "Cool hot spot with stylish, rustic accents & a patio for raw bar, seafood plates & clever cocktails.",
       "cuisine": [
-        "cat1",
-        "cat2"
+        "seafood",
+        "american"
       ]
     },
     {
       "id": 6,
-      "location": "Address",
+      "location": "109 Main St, Odessa, DE 19730",
       "name": "Cantwells Tavern",
       "images": [
         "https://popmenucloud.com/qsbntfzp/650c8d99-274c-4955-93d2-1347676388d3.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipNGOpGXIhoTojake0AfsrDMYqgrLVlmdBeFkqFg=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipMega_J6Ywhl7sEV1RGOaUHq3NB_W22d0laG4Wn=s1360-w1360-h1020"
       ],
-      "description": "Restaurant description",
+      "description": "Elevated American fare plus a raw bar & housemade desserts served in a restored 19th-century tavern.",
       "cuisine": [
-        "cat1",
-        "cat2"
+        "american",
+        "tavern"
       ]
     }
   ],
@@ -162,50 +162,50 @@
   "activities": [
     {
       "id": 1,
-      "location": "Address",
+      "location": "1042 Howell School Rd, Bear, DE 19701",
       "name": "Go Ape Treetop Adventure",
       "images": [
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/3e/6e/8a/beautiful-views-while.jpg?w=1200&h=900&s=1",
-        "img2",
-        "img3"
+        "https://our-kids.com/wp-content/uploads/2018/07/ezgif-4-203ab69d10c0.jpg",
+        "https://lh3.googleusercontent.com/p/AF1QipNwPQNZGduqqX3657bmRfjhBHKSIcSRGesMPak=s1360-w1360-h1020"
       ],
-      "description": "Site description",
+      "description": "Adventure-activity chain venue where groups explore the forest canopy via a treetop rope course.",
       "activity-lvl": "5"
     },
     {
       "id": 2,
-      "location": "Address",
+      "location": "1068 Howell School Rd, Bear, DE 19701",
       "name": "Kayak at Lums Pond",
       "images": [
         "https://media-cdn.tripadvisor.com/media/photo-s/06/ca/c4/81/lums-pond-state-park.jpg",
-        "img2",
-        "img3"
+        "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/delaware/Lums-Pond-State-Park0_568f50aa-5056-b3a8-49b35105ee7e68ef.jpg",
+        "https://www.onlyinyourstate.com/wp-content/uploads/2017/07/18268321_1485369654841736_309561155016800638_n.jpg"
       ],
-      "description": "Site description",
+      "description": "Surrounding Delaware’s largest freshwater pond, Lums Pond State Park offers a variety of recreational activities.",
       "activity-lvl": "5"
     },
     {
       "id": 3,
-      "location": "Address",
+      "location": "110 N Dupont Hwy, New Castle, DE 19720",
       "name": "New Castle Farmers Market",
       "images": [
         "https://www.onlyinyourstate.com/wp-content/uploads/2018/12/Screen-Shot-2018-12-26-at-4.59.48-PM.png",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipMi75g4dRSOS-PPYi9XYoMORWWXS527NjaKUjKE=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipM2skKaAzAl51GHWZLyAjjPEBNwE4Y4jUr1jw-S=s1360-w1360-h1020"
       ],
-      "description": "Site description",
+      "description": "New Castle Farmers Market is an indoor/outdoor flea market with food, antiques, collectibles and fresh produce.",
       "activity-lvl": "5"
     },
     {
       "id": 4,
-      "location": "Address",
+      "location": "132 Christiana Mall, Newark, DE 19702",
       "name": "Shopping At Christiana Mall",
       "images": [
         "https://cloudfront-us-east-1.images.arcpublishing.com/brookfieldproperties/VUK53KWFIJBXVJLEIMF2MMW7JE.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipODu96dFFLxIUFJbK6sSnGIjWIqDGbqiFmIrnbb=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipOv0d3B3TwnMjGHkmWU5xRMuVw5QbIw6SM2rmGA=s1360-w1360-h1020"
       ],
-      "description": "Site description",
+      "description": "Christiana Mall is the largest shopping mall in the state of Delaware. Featuring tax free shopping!",
       "activity-lvl": "5"
     },
     {
@@ -214,8 +214,8 @@
       "name": "Visit Museums",
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/e/e3/Winterthur_Museum_Building_Wide_Angle_2969px.jpg",
-        "img2",
-        "img3"
+        "https://lh3.googleusercontent.com/p/AF1QipNkucnRHgXiHSsj_sp_T_pRVtW9zrQl82q6X8AS=s1360-w1360-h1020",
+        "https://sideofculture.com/wp-content/uploads/2021/02/1455-Hagley-The-Hagley-Museum-Wilmington-Delaware-.jpg"
       ],
       "description": "Site description",
       "activity-lvl": "5"
@@ -226,37 +226,43 @@
       "name": "Ferry Ride to Fort Delaware",
       "images": [
         "https://www.capegazette.com/sites/capegazette/files/2016/06/field/image/delafort_ferry_email.jpg",
-        "img2",
-        "img3"
+        "https://www.delawareonline.com/gcdn/presto/2023/05/08/PWIL/e35e677b-a89a-4f6c-8841-8fccc6fcc9b5-Ft_Delaware-Delafort_ferry-05-05-23.JPG",
+        "https://news.delaware.gov/files/2021/05/DNREC-Closes-Fort-Delaware-until-June-4-for-Ferry-Repairs-scaled.jpg"
       ],
-      "description": "Site description",
+      "description": "Situated on Pea Patch Island in the middle of the Delaware River, Fort Delaware was initially constructed in the mid-1800s to protect Wilmington and Philadelphia from enemy attack.",
       "activity-lvl": "5"
     }
   ],
   "myItinerary": [
     {
-      "id": "6d43",
-      "name": "Jessops Tavern"
+      "id": "d1f5",
+      "name": "Jessops Tavern",
+      "location": "114 Delaware St, New Castle, DE 19720"
     },
     {
-      "id": "7736",
-      "name": "The Mercury Cafe & Teahouse"
+      "id": "4647",
+      "name": "Nora Lees",
+      "location": "124 Delaware St, New Castle, DE 19720"
     },
     {
-      "id": "990b",
-      "name": "Jessops Tavern"
+      "id": "d520",
+      "name": "Cantwells Tavern",
+      "location": "109 Main St, Odessa, DE 19730"
     },
     {
-      "id": "d981",
-      "name": "The Mercury Cafe & Teahouse"
+      "id": "12ab",
+      "name": "Go Ape Treetop Adventure",
+      "location": "1042 Howell School Rd, Bear, DE 19701"
     },
     {
-      "id": "a57e",
-      "name": "Jessops Tavern"
+      "id": "3ca2",
+      "name": "New Castle Farmers Market",
+      "location": "110 N Dupont Hwy, New Castle, DE 19720"
     },
     {
-      "id": "356e",
-      "name": "Jessops Tavern"
+      "id": "fe42",
+      "name": "Shopping At Christiana Mall",
+      "location": "132 Christiana Mall, Newark, DE 19702"
     }
   ]
 }
