@@ -14,7 +14,7 @@ This project features a dynamic itinerary planning application using Javascript,
 
 Then run the server with:
 
- `$json-server --watch monsters.json`
+ `$json-server --watch db.json`
 
  3. Open index.html to view application. Enjoy!
 
