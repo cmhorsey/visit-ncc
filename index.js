@@ -88,6 +88,9 @@ function handleDiningDisplay(option, container){
   return infoBtn
 }
 
+function fetchAllDisplays(option, container){
+
+}
 
 
 function handleDiningFetch(restaurant){
@@ -193,6 +196,85 @@ function handleDiningFetch(restaurant){
     })
   }
 
+  function handleActivityFetch(activity) {
+    let infoBtn  = handleDiningDisplay(activity, activityOptions)
+
+    let detailsContainer = document.createElement('div')
+    optionDetails.appendChild(detailsContainer)
+    detailsContainer.style.display = 'none'
+
+    infoBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      optionDetails.innerHTML = '';
+
+      if (detailsContainer.style.display === 'none') {
+        detailsContainer.innerHTML = ''
+
+        let optionName = document.createElement('h2')
+        let img = document.createElement('img')
+        let arrowIcon = document.createElement('img')
+        let description = document.createElement('p')
+        let itineraryBtn = document.createElement('button')
+
+        optionName.classList.add('option-name')
+        optionName.innerText = activity.name
+        img.src = activity.images[0]
+        arrowIcon.src = arrowImage
+        description.innerText = activity.description
+        arrowIcon.classList.add('arrowIcon')
+        itineraryBtn.innerText = 'Add to itinerary'
+        itineraryBtn.classList.add('info-btn')
+
+        detailsContainer.appendChild(optionName)
+        detailsContainer.appendChild(img)
+        detailsContainer.appendChild(arrowIcon)
+        detailsContainer.appendChild(description)
+        detailsContainer.appendChild(itineraryBtn)
+
+        let currentImage = 0
+        window.addEventListener('keydown', (e) => {
+          let key = e.keyCode
+          if(key === 39) {
+            currentImage++
+
+            if (currentImage >= activity.images.length) {
+              currentImage = 0
+            }
+            img.src = activity.images[currentImage]
+          }
+        })
+
+        itineraryBtn.addEventListener('click', (e) => {
+          e.preventDefault()
+
+          //CREATE POST REQUEST
+          let newItineraryItem = {
+            'name': activity.name,
+            'location': activity.location
+          }
+
+          fetch('http://localhost:3000/myItinerary', {
+            method: 'POST',
+            headers:
+            {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: JSON.stringify(newItineraryItem)
+          })
+          .then(res => res.json())
+          .then(newItem => createItineraryCard(newItem))
+
+          })
+
+        detailsContainer.style.display = 'block'
+      } else {
+        detailsContainer.style.display = 'none'
+      }
+      optionDetails.appendChild(detailsContainer);
+    })
+  }
 
 
   function displayActivityOptions() {
@@ -209,111 +291,97 @@ function handleDiningFetch(restaurant){
           .then(res => res.json())
           .then(activities => {
             activities.forEach(activity => {
-              let img = document.createElement('img')
-              let li = document.createElement('li')
-              let div = document.createElement('div')
-              let h2 = document.createElement('h2')
-              let infoBtn = document.createElement('button')
-
-              img.src = activity.images[0]
-              h2.innerText = activity.name
-              h2.classList.add('title-name')
-              infoBtn.classList.add('info-btn')
-              infoBtn.innerText = 'More info'
-              div.classList.add('divCard')
-
-              div.appendChild(img)
-              div.appendChild(h2)
-              li.appendChild(div)
-              li.appendChild(infoBtn)
-
-              activityOptions.appendChild(li)
-
-              let detailsContainer = document.createElement('div')
-              optionDetails.appendChild(detailsContainer)
-              detailsContainer.style.display = 'none'
-
-              infoBtn.addEventListener('click', (e) => {
-                e.preventDefault()
-
-                optionDetails.innerHTML = '';
-
-                if (detailsContainer.style.display === 'none') {
-                  detailsContainer.innerHTML = ''
-
-                  let optionName = document.createElement('h2')
-                  let img = document.createElement('img')
-                  let arrowIcon = document.createElement('img')
-                  let description = document.createElement('p')
-                  let itineraryBtn = document.createElement('button')
-
-                  optionName.classList.add('option-name')
-                  optionName.innerText = activity.name
-                  img.src = activity.images[0]
-                  arrowIcon.src = arrowImage
-                  description.innerText = activity.description
-                  arrowIcon.classList.add('arrowIcon')
-                  itineraryBtn.innerText = 'Add to itinerary'
-                  itineraryBtn.classList.add('info-btn')
-
-                  detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img)
-                  detailsContainer.appendChild(arrowIcon)
-                  detailsContainer.appendChild(description)
-                  detailsContainer.appendChild(itineraryBtn)
-
-                  let currentImage = 0
-                  window.addEventListener('keydown', (e) => {
-                    let key = e.keyCode
-                    if(key === 39) {
-                      currentImage++
-
-                      if (currentImage >= activity.images.length) {
-                        currentImage = 0
-                      }
-                      img.src = activity.images[currentImage]
-                    }
-                  })
-
-                  itineraryBtn.addEventListener('click', (e) => {
-                    e.preventDefault()
-
-                    //CREATE POST REQUEST
-                    let newItineraryItem = {
-                      'name': activity.name,
-                      'location': activity.location
-                    }
-
-                    fetch('http://localhost:3000/myItinerary', {
-                      method: 'POST',
-                      headers:
-                      {
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                      },
-                      body: JSON.stringify(newItineraryItem)
-                    })
-                    .then(res => res.json())
-                    .then(newItem => createItineraryCard(newItem))
-
-                    })
-
-                  detailsContainer.style.display = 'block'
-                } else {
-                  detailsContainer.style.display = 'none'
-                }
-                optionDetails.appendChild(detailsContainer);
-              })
+              handleActivityFetch(activity)
             })
             optionsVisible = true
           })
       }
     })
   }
+  //call handle display fetch
+  //pass it
+
+  function handleSightsFetch(sight) {
+    let infoBtn  = handleDiningDisplay(sight, sightsOptions)
+
+    let detailsContainer = document.createElement('div')
+    optionDetails.appendChild(detailsContainer)
+    detailsContainer.style.display = 'none'
+
+    infoBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      optionDetails.innerHTML = '';
+
+      if (detailsContainer.style.display === 'none') {
+        detailsContainer.innerHTML = ''
+
+        let optionName = document.createElement('h2')
+        let img = document.createElement('img')
+        let arrowIcon = document.createElement('img')
+        let description = document.createElement('p')
+        let itineraryBtn = document.createElement('button')
+
+        optionName.classList.add('option-name')
+        optionName.innerText = sight.name
+        img.src = sight.images[0]
+        arrowIcon.src = arrowImage
+        description.innerText = sight.description
+        arrowIcon.classList.add('arrowIcon')
+        itineraryBtn.innerText = 'Add to itinerary'
+        itineraryBtn.classList.add('info-btn')
+
+        detailsContainer.appendChild(optionName)
+        detailsContainer.appendChild(img)
+        detailsContainer.appendChild(arrowIcon)
+        detailsContainer.appendChild(description)
+        detailsContainer.appendChild(itineraryBtn)
+
+        let currentImage = 0
+        window.addEventListener('keydown', (e) => {
+          let key = e.keyCode
+          if(key === 39) {
+            currentImage++
+
+            if (currentImage >= sight.images.length) {
+              currentImage = 0
+            }
+            img.src = sight.images[currentImage]
+          }
+        })
+
+        itineraryBtn.addEventListener('click', (e) => {
+          e.preventDefault()
+          //CREATE POST REQUEST
+          let newItineraryItem = {
+            'name': sight.name,
+            'location': sight.location
+          }
+
+          fetch('http://localhost:3000/myItinerary', {
+            method: 'POST',
+            headers:
+            {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: JSON.stringify(newItineraryItem)
+          })
+          .then(res => res.json())
+          .then(newItem => createItineraryCard(newItem))
+        })
+
+        detailsContainer.style.display = 'block'
+      } else {
+        detailsContainer.style.display = 'none'
+      }
+      optionDetails.appendChild(detailsContainer);
+    })
+  }
+
 
   function displaySightsOptions() {
     let optionsVisible = false
-
     sightsBtn.addEventListener('click', (e) => {
       e.preventDefault()
 
@@ -325,105 +393,16 @@ function handleDiningFetch(restaurant){
           .then(res => res.json())
           .then(sights => {
             sights.forEach(sight => {
-              let img = document.createElement('img')
-              let li = document.createElement('li')
-              let div = document.createElement('div')
-              let h2 = document.createElement('h2')
-              let infoBtn = document.createElement('button')
-
-              img.src = sight.images[0]
-              h2.innerText = sight.name
-              h2.classList.add('title-name')
-              infoBtn.classList.add('info-btn')
-              infoBtn.innerText = 'More info'
-              div.classList.add('divCard')
-
-              div.appendChild(img)
-              div.appendChild(h2)
-              li.appendChild(div)
-              li.appendChild(infoBtn)
-
-              sightsOptions.appendChild(li)
-
-              let detailsContainer = document.createElement('div')
-              optionDetails.appendChild(detailsContainer)
-              detailsContainer.style.display = 'none'
-
-              infoBtn.addEventListener('click', (e) => {
-                e.preventDefault()
-
-                optionDetails.innerHTML = '';
-
-                if (detailsContainer.style.display === 'none') {
-                  detailsContainer.innerHTML = ''
-
-                  let optionName = document.createElement('h2')
-                  let img = document.createElement('img')
-                  let arrowIcon = document.createElement('img')
-                  let description = document.createElement('p')
-                  let itineraryBtn = document.createElement('button')
-
-                  optionName.classList.add('option-name')
-                  optionName.innerText = sight.name
-                  img.src = sight.images[0]
-                  arrowIcon.src = arrowImage
-                  description.innerText = sight.description
-                  arrowIcon.classList.add('arrowIcon')
-                  itineraryBtn.innerText = 'Add to itinerary'
-                  itineraryBtn.classList.add('info-btn')
-
-                  detailsContainer.appendChild(optionName)
-                  detailsContainer.appendChild(img)
-                  detailsContainer.appendChild(arrowIcon)
-                  detailsContainer.appendChild(description)
-                  detailsContainer.appendChild(itineraryBtn)
-
-                  let currentImage = 0
-                  window.addEventListener('keydown', (e) => {
-                    let key = e.keyCode
-                    if(key === 39) {
-                      currentImage++
-
-                      if (currentImage >= sight.images.length) {
-                        currentImage = 0
-                      }
-                      img.src = sight.images[currentImage]
-                    }
-                  })
-
-                  itineraryBtn.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    //CREATE POST REQUEST
-                    let newItineraryItem = {
-                      'name': sight.name,
-                      'location': sight.location
-                    }
-
-                    fetch('http://localhost:3000/myItinerary', {
-                      method: 'POST',
-                      headers:
-                      {
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                      },
-                      body: JSON.stringify(newItineraryItem)
-                    })
-                    .then(res => res.json())
-                    .then(newItem => createItineraryCard(newItem))
-                  })
-
-                  detailsContainer.style.display = 'block'
-                } else {
-                  detailsContainer.style.display = 'none'
-                }
-                optionDetails.appendChild(detailsContainer);
-              })
+              handleSightsFetch(sight)
             })
             optionsVisible = true
           })
       }
     })
   }
+
+
+
   displayMyItinerary()
   displaySightsOptions()
   displayDiningOptions()
