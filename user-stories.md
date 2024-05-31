@@ -1,6 +1,6 @@
 # Concept - Visit New Castle County Delaware
 
-## Feature 1 - Display Restaurants, Activities, and Sites
+## Feature 1 - Display Restaurants, Activities, and Sights
 
 ### User Story
   As a user, I want to view a list of options in each category.
