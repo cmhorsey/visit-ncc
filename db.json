@@ -182,7 +182,7 @@
         "https://www.onlyinyourstate.com/wp-content/uploads/2017/07/18268321_1485369654841736_309561155016800638_n.jpg"
       ],
       "description": "Surrounding Delaware’s largest freshwater pond, Lums Pond State Park offers a variety of recreational activities.",
-      "activity-lvl": "5"
+      "activity-lvl": "4"
     },
     {
       "id": 3,
@@ -194,7 +194,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipM2skKaAzAl51GHWZLyAjjPEBNwE4Y4jUr1jw-S=s1360-w1360-h1020"
       ],
       "description": "New Castle Farmers Market is an indoor/outdoor flea market with food, antiques, collectibles and fresh produce.",
-      "activity-lvl": "5"
+      "activity-lvl": "2"
     },
     {
       "id": 4,
@@ -206,7 +206,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipOv0d3B3TwnMjGHkmWU5xRMuVw5QbIw6SM2rmGA=s1360-w1360-h1020"
       ],
       "description": "Christiana Mall is the largest shopping mall in the state of Delaware. Featuring tax free shopping!",
-      "activity-lvl": "5"
+      "activity-lvl": "3"
     },
     {
       "id": 5,
@@ -218,7 +218,7 @@
         "https://sideofculture.com/wp-content/uploads/2021/02/1455-Hagley-The-Hagley-Museum-Wilmington-Delaware-.jpg"
       ],
       "description": "In New Castle County, Delaware, there are several notable museums worth exploring. Including but not limited to Delaware Art Museum, Delaware Children's Museum, and The Read House and Gardens",
-      "activity-lvl": "5"
+      "activity-lvl": "2"
     },
     {
       "id": 6,
@@ -230,49 +230,19 @@
         "https://news.delaware.gov/files/2021/05/DNREC-Closes-Fort-Delaware-until-June-4-for-Ferry-Repairs-scaled.jpg"
       ],
       "description": "Situated on Pea Patch Island in the middle of the Delaware River, Fort Delaware was initially constructed in the mid-1800s to protect Wilmington and Philadelphia from enemy attack.",
-      "activity-lvl": "5"
+      "activity-lvl": "4"
     }
   ],
   "myItinerary": [
     {
-      "id": "bdee",
+      "id": "86d5",
+      "name": "Go Ape Treetop Adventure",
+      "location": "1042 Howell School Rd, Bear, DE 19701"
+    },
+    {
+      "id": "ffb8",
       "name": "Jessops Tavern",
       "location": "114 Delaware St, New Castle, DE 19720"
-    },
-    {
-      "id": "3023",
-      "name": "Nora Lees",
-      "location": "124 Delaware St, New Castle, DE 19720"
-    },
-    {
-      "id": "5aa5",
-      "name": "Visit Museums",
-      "location": "All Across NCC"
-    },
-    {
-      "id": "ccfd",
-      "name": "Historic Old New Castle",
-      "location": ""
-    },
-    {
-      "id": "a15f",
-      "name": "Rockford Park Tower",
-      "location": "Lookout Dr, Wilmington, DE 19806"
-    },
-    {
-      "id": "5ad3",
-      "name": "The Mercury Cafe & Teahouse",
-      "location": "206 Delaware Street Historic, New Castle, DE 19720"
-    },
-    {
-      "id": "da0f",
-      "name": "Visit Museums",
-      "location": "All Across NCC"
-    },
-    {
-      "id": "3d6a",
-      "name": "Brandywine State Park",
-      "location": "41 Adams Dam Rd, Wilmington, DE 19807"
     }
   ]
 }
