@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const sightsBtn = document.getElementById('sightsBtn')
   const optionDetails = document.getElementById('optionDetails')
   const itineraryList = document.getElementById('itineraryList')
+  const detailsContainer = document.createElement('div')
+
 
   function displayFetchOptions(url, container, button){
     let optionsVisible = false
@@ -35,23 +37,26 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  function handleInfoBtnClick(option, infoBtn, detailsContainer){
+  function handleInfoBtnClick(option, infoBtn){
     infoBtn.addEventListener('click', (e) => {
       e.preventDefault()
       optionDetails.innerHTML = ''
 
+      handleInfoBtnConditional(option)
+    })
+  }
+
+  function handleInfoBtnConditional(option) {
       if (detailsContainer.style.display === 'none') {
         displayDetailsCard(option, detailsContainer)
       } else {
         detailsContainer.style.display = 'none'
       }
-      optionDetails.appendChild(detailsContainer);
-    })
+      optionDetails.appendChild(detailsContainer)
   }
 
   function displayOptions(option, container){
     let infoBtn  = createDisplayOption(option, container)
-    let detailsContainer = document.createElement('div')
 
     optionDetails.appendChild(detailsContainer)
     detailsContainer.style.display = 'none'
