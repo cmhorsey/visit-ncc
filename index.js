@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const itineraryList = document.getElementById('itineraryList')
   const detailsContainer = document.createElement('div')
   const tempP = document.getElementById('temp')
+  const rainP = document.getElementById('rain')
 
 
   function displayFetchOptions(url, container, button){
@@ -222,23 +223,35 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(res => res.json())
     .then(data =>{
       let currentTemp = data.current.temperature_2m
-      console.log(currentTemp)
       currentTemp = celsiusToFahrenheit(currentTemp)
-      console.log(currentTemp)
-
-      tempP.innerText = `Current Temperature is ${currentTemp} °F`
 
       if(currentTemp > 75) {
-        console.log('Its getting toasty')
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, that's pretty toasty`
+      } else if (currentTemp < 75 && currentTemp > 65) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, you're gonna wanna be outside`
+      } else if (currentTemp < 65 && currentTemp > 55) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, aka sweater weather!`
       }
-
     })
   }
 
   function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
+    return Math.floor((celsius * 9/5) + 32)
+  }
+
+function fetchRain() {
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=rain')
+  .then(res => res.json())
+  .then(data => {
+    let rainStatus = data.current.rain
+
+    if(rainStatus === 1){
+      rainP.innerText = 'It is raining'
+    } else rainP.innerText = 'It is not raining'
+  })
 }
 
+  fetchRain()
   fetchTemp()
   displayFetchOptions(allRestaurantsURL, diningOptions, diningBtn)
   displayFetchOptions(allActivitiesURL, activityOptions, activityBtn)
