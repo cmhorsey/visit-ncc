@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const allActivitiesURL = 'http://localhost:3000/activities'
   const myItineraryURL = 'http://localhost:3000/myItinerary'
   const arrowImage = 'https://cdn-icons-png.flaticon.com/512/54/54382.png'
+  const sunImage = './images/sun.png'
+  const rainImage = './images/rain.png'
 
   const diningOptions = document.getElementById('diningOptions')
   const activityOptions = document.getElementById('activityOptions')
@@ -14,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const optionDetails = document.getElementById('optionDetails')
   const itineraryList = document.getElementById('itineraryList')
   const detailsContainer = document.createElement('div')
+  const tempP = document.getElementById('temp')
+  const rainP = document.getElementById('rain')
+  const weatherContainer = document.getElementById('weather-container')
+  const weatherHead = document.getElementById('weatherHead')
 
 
   function displayFetchOptions(url, container, button){
@@ -207,6 +213,55 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(items => items.forEach(createItineraryCard))
   }
 
+  function fetchTemp() {
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=temperature_2m')
+    .then(res => res.json())
+    .then(data =>{
+      let currentTemp = data.current.temperature_2m
+      currentTemp = celsiusToFahrenheit(currentTemp)
+
+      if(currentTemp > 75) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, that's pretty toasty`
+      } else if (currentTemp < 75 && currentTemp > 65) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, you're gonna wanna be outside`
+      } else if (currentTemp < 65 && currentTemp > 55) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, aka sweater weather!`
+      } else if (currentTemp < 55) {
+        tempP.innerText = `Current Temperature is ${currentTemp} °F, brrrrr`
+      }
+    })
+  }
+
+  function celsiusToFahrenheit(celsius) {
+    return Math.floor((celsius * 9/5) + 32)
+  }
+
+function fetchRain() {
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=rain')
+  .then(res => res.json())
+  .then(data => {
+    let rainStatus = data.current.rain
+    handleWeatherIcon(rainStatus)
+  })
+}
+
+function handleWeatherIcon(rainStatus) {
+  let weatherIcon = document.createElement('img')
+  weatherIcon.classList.add('sunImage')
+
+  if(rainStatus === 1){
+    rainP.innerText = 'It is raining, boo'
+    weatherIcon.src = rainImage
+  } else {
+    rainP.innerText = 'It is not raining, yay!'
+    weatherIcon.src = sunImage
+  }
+
+  weatherHead.appendChild(weatherIcon)
+}
+
+  fetchRain()
+  fetchTemp()
   displayFetchOptions(allRestaurantsURL, diningOptions, diningBtn)
   displayFetchOptions(allActivitiesURL, activityOptions, activityBtn)
   displayFetchOptions(allSightsURL, sightsOptions, sightsBtn)
