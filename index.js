@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const optionDetails = document.getElementById('optionDetails')
   const itineraryList = document.getElementById('itineraryList')
   const detailsContainer = document.createElement('div')
+  const tempP = document.getElementById('temp')
 
 
   function displayFetchOptions(url, container, button){
@@ -207,6 +208,38 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(items => items.forEach(createItineraryCard))
   }
 
+  //Research Weather API
+  //Make fetch request
+  //Get some info displaying
+  //Temperature
+  //https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=temperature_2m
+  //Cloud Cover
+  //https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=cloud_cover
+  //
+
+  function fetchTemp() {
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=39.6621&longitude=-75.5663&current=temperature_2m')
+    .then(res => res.json())
+    .then(data =>{
+      let currentTemp = data.current.temperature_2m
+      console.log(currentTemp)
+      currentTemp = celsiusToFahrenheit(currentTemp)
+      console.log(currentTemp)
+
+      tempP.innerText = `Current Temperature is ${currentTemp} °F`
+
+      if(currentTemp > 75) {
+        console.log('Its getting toasty')
+      }
+
+    })
+  }
+
+  function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+  fetchTemp()
   displayFetchOptions(allRestaurantsURL, diningOptions, diningBtn)
   displayFetchOptions(allActivitiesURL, activityOptions, activityBtn)
   displayFetchOptions(allSightsURL, sightsOptions, sightsBtn)
