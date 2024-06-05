@@ -77,6 +77,18 @@ ul {
   list-style-type: none;
 }
 
+#weather-container {
+  border: #000;
+  border-style: double;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.sunImage {
+  width: 45px;
+  height: 45px;
+}
+
 .button-52 {
   margin-top: 20px;
   font-size: 16px;
